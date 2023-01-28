@@ -166,7 +166,7 @@ local tasklist_buttons = gears.table.join(
 local function set_wallpaper(s)
 	-- Wallpaper
 	if beautiful.wallpaper then
-		gears.wallpaper.maximized("/home/elio/Imagens/wallpaper2.png", s, true)
+		gears.wallpaper.maximized("/home/elio/Imagens/wallpaper.jpg", s, true)
 	end
 end
 
