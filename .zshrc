@@ -1,14 +1,13 @@
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 if [[ -z "$DISPLAY" ]] then
 	startx
-        xset r rate 220 65
+        #xset r rate 220 65
 fi
 
-SSH_AUTH_SOCK=/tmp/ssh-XXXXXX4dBUC7/agent.29518; export SSH_AUTH_SOCK;
-SSH_AGENT_PID=29519; export SSH_AGENT_PID;
+SSH_AUTH_SOCK=/tmp/ssh-XXXXXX4dBUC7/agent.24438; export SSH_AUTH_SOCK;
+SSH_AGENT_PID=24438; export SSH_AGENT_PID;
 
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="robbyrussell"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
 export LANG=pt_BR.UTF-8
@@ -34,22 +33,4 @@ source $HOME/.profile
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-syntax-highlighting
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/elio/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/elio/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/elio/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/elio/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
