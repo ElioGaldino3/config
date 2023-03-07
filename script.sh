@@ -29,3 +29,4 @@ ln -sf /home/elio/.development/config/alacritty /home/elio/.config/alacritty
 ln -sf /home/elio/.development/config/awesome /home/elio/.config/awesome
 ln -sf /home/elio/.development/config/copyq /home/elio/.config/copyq
 ln -sf /home/elio/.development/config/nvim /home/elio/.config/nvim
+ln -sf /home/elio/.development/config/tmux /home/elio/.config/tmux

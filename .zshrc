@@ -1,6 +1,6 @@
-if [[ -z "$DISPLAY" ]] then
-	startx
-        #xset r rate 220 65
+if [[ -z "$DISPLAY" ]] && [[ $(tty) = /dev/tty1 ]]; then
+	exec startx
+        #xset r rate 220 75
 fi
 
 SSH_AUTH_SOCK=/tmp/ssh-XXXXXX4dBUC7/agent.24438; export SSH_AUTH_SOCK;
@@ -33,4 +33,3 @@ source $HOME/.profile
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-syntax-highlighting
-
