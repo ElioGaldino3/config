@@ -37,6 +37,7 @@ alias ya="yay -S"
 alias cvi="vi ~/.config/nvim"
 alias czsh="vi ~/.zshrc"
 alias cpro="vi ~/.profile"
+alias luasnip="/home/elio/Projetos/luasnip_generator/build/linux/x64/release/bundle/luasnip_generator"
 
 function cc {
   if [ ! -n "$1" ]; then

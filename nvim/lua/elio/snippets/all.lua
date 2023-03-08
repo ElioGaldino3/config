@@ -66,6 +66,53 @@ local snippets = {
 			t({ ")," }),
 		})
 	),
+	s(
+		"module",
+		sn(1, {
+			t({ "import 'package:flutter_modular/flutter_modular.dart';", "" }),
+			t({ "class " }),
+			i(1, "ModuleName"),
+			t(" extends Module {"),
+			t({ "", "  @override" }),
+			t({ "", "  List<Bind> get binds => [" }),
+			t({ "", "    //TODO: binds" }),
+			t({ "", "  ];" }),
+			t({ "", "" }),
+			t({ "", "  @override" }),
+			t({ "", "  List<ModularRoute> get routes => [" }),
+			t({ "", "    //TODO: routes" }),
+			t({ "", "  ];" }),
+			t({ "", "}" }),
+		})
+	),
+	s(
+		"proute",
+		sn(1, {
+			t("ChildRoute("),
+			i(1),
+			t(", child: (context, args) => "),
+			i(2),
+			t("),"),
+		})
+	),
+	s(
+		"mroute",
+		sn(1, {
+			t("ModuleRoute("),
+			i(1),
+			t(", module: "),
+			i(2),
+			t("),"),
+		})
+	),
+	s(
+		"mbind",
+		sn(1, {
+			t("AutoBind.singleton("),
+			i(1),
+			t("),"),
+		})
+	),
 }
 
 return snippets
