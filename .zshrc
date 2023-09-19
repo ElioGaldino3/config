@@ -1,5 +1,6 @@
 if [[ -z "$DISPLAY" ]] && [[ $(tty) = /dev/tty1 ]]; then
 	exec startx
+  eval $(ssh-agent)
         #xset r rate 220 75
 fi
 
