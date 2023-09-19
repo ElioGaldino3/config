@@ -571,6 +571,13 @@ client.connect_signal("request::titlebars", function(c)
 	})
 end)
 
+awful.key({ modkey, "Control"   }, "q",
+    function (c)
+        if c.pid then
+            awful.spawn("kill -9 " .. c.pid)
+        end
+    end
+)
 -- Enable sloppy focus, so that focus follows mouse.
 client.connect_signal("mouse::enter", function(c)
 	c:emit_signal("request::activate", "mouse_enter", { raise = false })

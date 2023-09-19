@@ -2,7 +2,8 @@ cd /tmp && git clone https://aur.archlinux.org/yay.git ; cd yay ; makepkg -si
 cd /tmp && wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-sh -c "$(curl -fsSL https://git.io/zinit-install)"
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ~/path/to/fsh
 
 ya unzip archlinux-keyring google-chrome neovim flameshot gnome-disk-utility ntfs-3g clang cmake pkg-config ninja p7zip gtk3 debtap tree xz fzf docker scrcpy neovim picom-git copyq docker-compose github-cli gnome-disk-utility ruby tk
 
