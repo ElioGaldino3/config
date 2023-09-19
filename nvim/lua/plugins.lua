@@ -80,5 +80,9 @@ lazy.setup({
         "Toggle Flash Search"
       },
     },
-  }
+  },
+  {
+    'numToStr/Comment.nvim',
+    lazy = false,
+}
 })

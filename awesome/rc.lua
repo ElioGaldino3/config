@@ -217,8 +217,8 @@ awful.screen.connect_for_each_screen(function(s)
 	-- Create the wibox
 	s.mywibox = awful.wibar({ position = "left", screen = s })
 
-	local hour_clock = awful.widget.textclock('<span color="#ffffff" font="JetBrains Mono NerdFont 13">%H</span>', 5)
-	local minute_clock = awful.widget.textclock('<span color="#ffffff" font="JetBrains Mono NerdFont 13">%M</span>', 5)
+	local hour_clock = awful.widget.textclock('<span color="#ffffff" font="JetBrains Mono NerdFont 12">%H</span>', 5)
+	local minute_clock = awful.widget.textclock('<span color="#ffffff" font="JetBrains Mono NerdFont 12">%M</span>', 5)
 
 	local tray_widget = wibox.container.rotate()
 	tray_widget:set_direction("east")
@@ -571,13 +571,6 @@ client.connect_signal("request::titlebars", function(c)
 	})
 end)
 
-awful.key({ modkey, "Control"   }, "q",
-    function (c)
-        if c.pid then
-            awful.spawn("kill -9 " .. c.pid)
-        end
-    end
-)
 -- Enable sloppy focus, so that focus follows mouse.
 client.connect_signal("mouse::enter", function(c)
 	c:emit_signal("request::activate", "mouse_enter", { raise = false })
