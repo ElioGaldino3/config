@@ -5,7 +5,8 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ~/path/to/fsh
 
-ya unzip archlinux-keyring google-chrome neovim flameshot gnome-disk-utility ntfs-3g clang cmake pkg-config ninja p7zip gtk3 debtap tree xz fzf docker scrcpy neovim picom-git copyq docker-compose github-cli gnome-disk-utility ruby tk
+yay -S unzip archlinux-keyring jre-openjdk google-chrome neovim flameshot gnome-disk-utility ntfs-3g clang cmake pkg-config ninja p7zip debtap tree xz fzf docker scrcpy neovim picom-git copyq docker-compose github-cli gnome-disk-utility ruby tk
+yay -S unzip neovim jre-openjdk clang cmake pkg-config ninja p7zip debtap tree xz fzf neovim ruby
 
 git config --global user.email "eliogaldino79@outlook.com"
 git config --global user.name "Elio Galdino"
@@ -32,5 +33,19 @@ ln -sf /home/elio/.development/config/copyq /home/elio/.config/copyq
 ln -sf /home/elio/.development/config/nvim /home/elio/.config/nvim
 ln -sf /home/elio/.development/config/tmux /home/elio/.config/tmux
 
+rm ~/.zshrc;rm ~/.zsh_history
+
+ln -sf /home/elio/.development/config/.zshrc /home/elio/.zshrc
+ln -sf /home/elio/.development/config/.zsh_history /home/elio/.zsh_history
+ln -sf /home/elio/.development/config/.profile /home/elio/.profile
+
 sudo rm /usr/lib/python3.11/EXTERNALLY-MANAGED
+
+export flutterLINK="https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.13.5-stable.tar.xz"
+export androidLINK="https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip"
+
+wget $flutterLINK -O flutter.tar; wget $androidLINK -O android.zip
+unzip android.zip; tar -xf flutter.tar
+rm flutter.tar; rm android.zip
+mkdir $HOME/android/cmdline-tools/tools -p; mv ./cmdline-tools/bin $HOME/android/cmdline-tools/tools; mv ./cmdline-tools/lib $HOME/android/cmdline-tools/tools; mv ./cmdline-tools/NOTICE.txt $HOME/android/cmdline-tools/tools;mv ./cmdline-tools/source.properties $HOME/android/cmdline-tools/tools
 

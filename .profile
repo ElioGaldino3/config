@@ -1,11 +1,10 @@
 export PATH="$PATH:$HOME/.development/flutter/bin"
 export PATH="$PATH:$HOME/.local/bin"
-export ANDROID_HOME=$HOME/Android/Sdk
-#export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
+export ANDROID_HOME=$HOME/android
 export PATH=$ANDROID_HOME/cmdline-tools/tools/bin/:$PATH
 export PATH=$ANDROID_HOME/emulator/:$PATH
 export PATH=$ANDROID_HOME/platform-tools/:$PATH
-export CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
+
 . "$HOME/.cargo/env"
 
 alias ll="exa -l -g --icons"

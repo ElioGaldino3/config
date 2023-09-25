@@ -18,3 +18,10 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/.profile
 source ~/path/to/fsh/fast-syntax-highlighting.plugin.zsh
 
+
+# bun completions
+[ -s "/home/elio/.bun/_bun" ] && source "/home/elio/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
