@@ -1,12 +1,13 @@
 cd /tmp && git clone https://aur.archlinux.org/yay.git ; cd yay ; makepkg -si
+sudo rm /usr/lib/python3.11/EXTERNALLY-MANAGED
 cd /tmp && wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ~/path/to/fsh
 
-yay -S unzip archlinux-keyring jre-openjdk google-chrome neovim flameshot gnome-disk-utility ntfs-3g clang cmake pkg-config ninja p7zip debtap tree xz fzf docker scrcpy neovim picom-git copyq docker-compose github-cli gnome-disk-utility ruby tk
-yay -S unzip neovim jre-openjdk clang cmake pkg-config ninja p7zip debtap tree xz fzf neovim ruby
+yay -S unzip jre17-openjdk neovim flameshot gnome-disk-utility ntfs-3g clang cmake pkg-config ninja p7zip debtap tree xz fzf docker scrcpy neovim copyq docker-compose github-cli gnome-disk-utility ruby tk
+yay -S unzip neovim jre17-openjdk clang cmake pkg-config ninja p7zip debtap tree xz fzf neovim ruby
 
 git config --global user.email "eliogaldino79@outlook.com"
 git config --global user.name "Elio Galdino"
@@ -39,8 +40,6 @@ ln -sf /home/elio/.development/config/.zshrc /home/elio/.zshrc
 ln -sf /home/elio/.development/config/.zsh_history /home/elio/.zsh_history
 ln -sf /home/elio/.development/config/.profile /home/elio/.profile
 
-sudo rm /usr/lib/python3.11/EXTERNALLY-MANAGED
-
 export flutterLINK="https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.13.5-stable.tar.xz"
 export androidLINK="https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip"
 
@@ -49,3 +48,7 @@ unzip android.zip; tar -xf flutter.tar
 rm flutter.tar; rm android.zip
 mkdir $HOME/android/cmdline-tools/tools -p; mv ./cmdline-tools/bin $HOME/android/cmdline-tools/tools; mv ./cmdline-tools/lib $HOME/android/cmdline-tools/tools; mv ./cmdline-tools/NOTICE.txt $HOME/android/cmdline-tools/tools;mv ./cmdline-tools/source.properties $HOME/android/cmdline-tools/tools
 
+sudo nmcli connection modify "Conexão cabeada 1" ipv4.dns "8.8.8.8,8.8.4.4"
+sudo nmcli connection modify "Conexão cabeada 1" ipv6.dns "2001:4860:4860::8888,2001:4860:4860::8844"
+sudo nmcli connection down "Conexão cabeada 1"
+sudo nmcli connection up "Conexão cabeada 1"

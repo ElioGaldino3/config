@@ -1,5 +1,6 @@
 local status, ayu = pcall(require, 'ayu')
-if (not status) then
+local status2, transparent = pcall(require, 'transparent')
+if (not status or not status2) then
   return
 end
 
@@ -8,4 +9,7 @@ ayu.setup({
   overrides = {},   -- A dictionary of group names, each associated with a dictionary of parameters (`bg`, `fg`, `sp` and `style`) and colors in hex.
 })
 
+transparent.setup {}
+
 vim.cmd [[colorscheme ayu-dark]]
+vim.cmd [[TransparentEnable]]

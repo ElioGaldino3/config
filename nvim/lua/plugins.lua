@@ -7,6 +7,7 @@ end
 lazy.setup({
   'nvim-tree/nvim-web-devicons',
   'Shatur/neovim-ayu',
+  'xiyaowong/transparent.nvim',
   'hoob3rt/lualine.nvim',
   'onsails/lspkind-nvim',
   'hrsh7th/cmp-buffer',
