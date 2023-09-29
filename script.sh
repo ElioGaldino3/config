@@ -52,3 +52,6 @@ sudo nmcli connection modify "Conexão cabeada 1" ipv4.dns "8.8.8.8,8.8.4.4"
 sudo nmcli connection modify "Conexão cabeada 1" ipv6.dns "2001:4860:4860::8888,2001:4860:4860::8844"
 sudo nmcli connection down "Conexão cabeada 1"
 sudo nmcli connection up "Conexão cabeada 1"
+
+localectl set-x11-keymap us "" altgr-intl
+setxkbmap -layout us -variant altgr-intl -option nodeadkeys

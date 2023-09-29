@@ -6,7 +6,7 @@ end
 
 lazy.setup({
   'nvim-tree/nvim-web-devicons',
-  'Shatur/neovim-ayu',
+  'shatur/neovim-ayu',
   'xiyaowong/transparent.nvim',
   'hoob3rt/lualine.nvim',
   'onsails/lspkind-nvim',
@@ -14,9 +14,18 @@ lazy.setup({
   'hrsh7th/cmp-nvim-lsp', -- nvim-cmp source for neovim
   'hrsh7th/nvim-cmp',     -- completion
   'neovim/nvim-lspconfig',
-  'L3MON4D3/LuaSnip',
+  {
+  "L3MON4D3/LuaSnip",
+  dependencies = { "rafamadriz/friendly-snippets" },
+},
+  'rcarriga/nvim-notify',
+  {
+	"L3MON4D3/LuaSnip",
+	version = "2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+	build = "make install_jsregexp"
+},
+	'saadparwaiz1/cmp_luasnip',
   'nvim-treesitter/nvim-treesitter',
-  'nvim-treesitter/nvim-treesitter-textobjects',
   'windwp/nvim-autopairs',
   'windwp/nvim-ts-autotag',
   'nvim-lua/plenary.nvim',
@@ -26,12 +35,12 @@ lazy.setup({
   'norcalli/nvim-colorizer.lua',
   'glepnir/lspsaga.nvim',
   'jose-elias-alvarez/null-ls.nvim',
-  'MunifTanjim/prettier.nvim',
+  'muniftanjim/prettier.nvim',
   'lewis6991/gitsigns.nvim',
   'famiu/bufdelete.nvim',
   'williamboman/mason.nvim',
   'williamboman/mason-lspconfig.nvim',
-  'Exafunction/codeium.vim',
+  --'exafunction/codeium.vim',
   {
     "folke/flash.nvim",
     keys = {
@@ -45,10 +54,10 @@ lazy.setup({
           })
         end,
         desc =
-        "Flash Forward"
+        "flash forward"
       },
       {
-        "S",
+        "s",
         mode = { "n", "o", "x" },
         function()
           require("flash").jump({
@@ -57,33 +66,33 @@ lazy.setup({
           })
         end,
         desc =
-        "Flash Backward"
+        "flash backward"
       },
       {
         "r",
         mode = "o",
         function() require("flash").remote() end,
         desc =
-        "Remote Flash"
+        "remote flash"
       },
       {
-        "R",
+        "r",
         mode = { "o", "x" },
         function() require("flash").treesitter_search() end,
         desc =
-        "Treesitter Search"
+        "treesitter search"
       },
       {
         "<c-s>",
         mode = { "c" },
         function() require("flash").toggle() end,
         desc =
-        "Toggle Flash Search"
+        "toggle flash search"
       },
     },
   },
   {
-    'numToStr/Comment.nvim',
+    'numtostr/comment.nvim',
     lazy = false,
 }
 })
