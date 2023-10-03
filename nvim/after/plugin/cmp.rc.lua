@@ -51,8 +51,8 @@ cmp.setup({
     ['<C-j>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
   }),
   sources = {
-		{ name = "luasnip" },
-		{ name = "nvim_lsp", max_item_count = 6 },
+		{ name = "luasnip", max_item_count = 5 },
+		{ name = "nvim_lsp", max_item_count = 15},
 		{ name = "nvim_lua" },
 		{ name = "path" },
 		{ name = "buffer", max_item_count = 6 },

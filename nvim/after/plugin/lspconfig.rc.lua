@@ -46,3 +46,7 @@ lsp.dartls.setup {
 lsp.rust_analyzer.setup {
 	on_attach = on_attach
 }
+
+lsp.sqlls.setup {
+  on_attach = on_attach
+}
