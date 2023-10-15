@@ -24,12 +24,8 @@ ls.config.set_config({
 ls.filetype_extend("dart", { "flutter" })
 
 vim.keymap.set({ "i", "s" }, "<c-u>", '<cmd>lua require("luasnip.extras.select_choice")()<cr><C-c><C-c>')
+local cmp = require("cmp")
 
-vim.keymap.set({ "i", "s" }, "<a-p>", function()
-  if ls.expand_or_jumpable() then
-    ls.expand()
-  end
-end, { silent = true })
 -- vim.keymap.set({ "i", "s" }, "<C-k>", function()
 -- 	if ls.expand_or_jumpable() then
 -- 		ls.expand_or_jump()

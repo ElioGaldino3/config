@@ -1,7 +1,7 @@
 local ls = require("luasnip")
 local s = ls.s
-local t = ls.t
 local i = ls.i
+local fmta = require("luasnip.extras.fmt").fmta
 
 local snippets, auto_snippets = {}, {}
 

@@ -1,0 +1,13 @@
+{
+  "connections": [
+    {
+      "name": "postgres-tft",
+      "adapter": "postgres",
+      "host": "localhost",
+      "port": 5432,
+      "user": "tft",
+      "password": "tft",
+      "database": "tft"
+    }
+  ]
+}

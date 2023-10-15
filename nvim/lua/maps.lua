@@ -4,6 +4,7 @@ vim.g.mapleader = " "
 
 keymap.set('n', 'x', '"_x', s)
 keymap.set('i', 'jk', '<esc>', s)
+keymap.set('n', '<leader>r', 'A;<esc>', s)
 keymap.set('n', '<leader>w', ':w<cr>', s)
 keymap.set('n', '<leader>q', ':w<cr>:lua require("bufdelete").bufdelete(0)<cr>', s)
 

@@ -1,4 +1,5 @@
 export PATH="$PATH:$HOME/.development/flutter/bin"
+export PATH="$PATH:$HOME/go/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export ANDROID_HOME=$HOME/android
 export JAVA_HOME="/usr/lib/jvm/default/"
@@ -31,7 +32,7 @@ alias cleanlibs="find . -name 'node_modules' -type d -prune -print | xargs du -c
 alias py="python"
 #alias trab="proj; cd eliana; cd app;code .; cd ../backend; yarn start:prod"
 #alias trab="proj; cd Trabalho/ifood_layout; nvim"
-alias trab="proj; cd Trabalho/gg_delivery; nvim"
+alias trab="proj; cd cartotactics/backend; tmux"
 alias eleve-dev="sudo http-server $HOME/Projetos/Eleve/dev_flutter/build/web -p 80 -c-1"
 alias vi="nvim"
 alias vim="nvim"
@@ -58,3 +59,4 @@ function recCel {
 
   scrcpy -Nr ~/Videos/file.mp4 --show-touches -m 720
 }
+export PATH="$PATH":"$HOME/.pub-cache/bin"

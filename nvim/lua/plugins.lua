@@ -15,19 +15,24 @@ lazy.setup({
   'hrsh7th/nvim-cmp',     -- completion
   'neovim/nvim-lspconfig',
   {
-  "L3MON4D3/LuaSnip",
-  dependencies = { "rafamadriz/friendly-snippets" },
-},
+    "L3MON4D3/LuaSnip",
+    dependencies = { "rafamadriz/friendly-snippets" },
+  },
   'rcarriga/nvim-notify',
   {
-	"L3MON4D3/LuaSnip",
-	version = "2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-	build = "make install_jsregexp"
-},
-	'saadparwaiz1/cmp_luasnip',
+    "L3MON4D3/LuaSnip",
+    version = "2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+    build = "make install_jsregexp"
+  },
+  'saadparwaiz1/cmp_luasnip',
   'nvim-treesitter/nvim-treesitter',
-  'windwp/nvim-autopairs',
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    opts = {} -- this is equalent to setup({}) function
+  },
   'windwp/nvim-ts-autotag',
+  'kabouzeid/nvim-lspinstall',
   'nvim-lua/plenary.nvim',
   'nvim-telescope/telescope.nvim',
   'nvim-telescope/telescope-file-browser.nvim',
@@ -94,5 +99,5 @@ lazy.setup({
   {
     'numtostr/comment.nvim',
     lazy = false,
-}
+  }
 })
