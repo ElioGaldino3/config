@@ -23,17 +23,16 @@ class <>Module extends Module {
 }
 ]], { i(1), i(2) }))
 
-local r_child = s('smc', fmta([[
-r.child('<>', child: (context) => const <>);
-]], { i(1), i(2) }))
-local r_module = s('smm', fmta([[
-r.module('<>', module: <>);
-]], { i(1), i(2) }))
+local screen_sizes = s('ssize', fmta([[
+final size = MediaQuery.of(context).size;
+final screenWidth = size.width;
+final screenHeigth = size.height;
+]], {}))
+
 
 table.insert(autosnippets, sized_box_height)
 table.insert(autosnippets, sized_box_width)
 table.insert(autosnippets, modular_module)
-table.insert(autosnippets, r_child)
-table.insert(autosnippets, r_module)
+table.insert(autosnippets, screen_sizes)
 
 return snippets, autosnippets

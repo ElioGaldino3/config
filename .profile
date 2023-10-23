@@ -32,7 +32,7 @@ alias cleanlibs="find . -name 'node_modules' -type d -prune -print | xargs du -c
 alias py="python"
 #alias trab="proj; cd eliana; cd app;code .; cd ../backend; yarn start:prod"
 #alias trab="proj; cd Trabalho/ifood_layout; nvim"
-alias trab="proj; cd cartotactics/backend; tmux"
+alias trab="proj; cd Flutter/ifood_design; tmux"
 alias eleve-dev="sudo http-server $HOME/Projetos/Eleve/dev_flutter/build/web -p 80 -c-1"
 alias vi="nvim"
 alias vim="nvim"
@@ -50,6 +50,16 @@ function cc {
   else
     mkdir $1 -p && cd $1
   fi
+}
+
+function c3d {
+  cd /home/elio/Projetos/3D/GCODES
+  sudo mount /dev/$1 /mnt/3D_SD
+  py corrigir.py 
+  sudo rm /mnt/3D_SD/*.gcode --force
+  sudo cp ./*.gcode /mnt/3D_SD
+  rm *.gcode
+  sudo umount /dev/$1
 }
 
 function recCel {

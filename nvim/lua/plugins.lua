@@ -13,6 +13,7 @@ lazy.setup({
   'hrsh7th/cmp-buffer',
   'hrsh7th/cmp-nvim-lsp', -- nvim-cmp source for neovim
   'hrsh7th/nvim-cmp',     -- completion
+  'mfussenegger/nvim-dap',
   'neovim/nvim-lspconfig',
   {
     "L3MON4D3/LuaSnip",
@@ -53,25 +54,10 @@ lazy.setup({
         "s",
         mode = { "n", "o", "x" },
         function()
-          require("flash").jump({
-            search = { forward = true, wrap = false, multi_window = false },
-
-          })
+          require("flash").jump()
         end,
         desc =
         "flash forward"
-      },
-      {
-        "s",
-        mode = { "n", "o", "x" },
-        function()
-          require("flash").jump({
-            search = { forward = false, wrap = false, multi_window = false },
-
-          })
-        end,
-        desc =
-        "flash backward"
       },
       {
         "r",

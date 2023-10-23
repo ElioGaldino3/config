@@ -81,3 +81,7 @@ lsp.tailwindcss.setup {
 lsp.gopls.setup {
   on_attach = on_attach
 }
+
+lsp.pylsp.setup {
+  on_attach = on_attach
+}

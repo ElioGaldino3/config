@@ -11,6 +11,7 @@ yay -S unzip neovim jre17-openjdk clang cmake pkg-config ninja p7zip debtap tree
 
 git config --global user.email "eliogaldino79@outlook.com"
 git config --global user.name "Elio Galdino"
+git config --global init.defaultBranch main
 sudo usermod -aG docker $USER
 sudo systemctl enable docker.service
 sudo systemctl enable containerd.service
