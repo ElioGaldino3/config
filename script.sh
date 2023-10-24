@@ -6,7 +6,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ~/path/to/fsh
 
-yay -S unzip tmux jre17-openjdk neovim flameshot gnome-disk-utility ntfs-3g clang cmake pkg-config ninja p7zip debtap tree xz fzf docker scrcpy neovim copyq docker-compose github-cli gnome-disk-utility ruby tk picom vscode thunar rofi nodejs npm arandr nodejs npm arandr
+yay -S unzip tmux jre17-openjdk neovim flameshot gnome-disk-utility ntfs-3g clang cmake pkg-config ninja p7zip debtap tree xz fzf docker scrcpy neovim copyq docker-compose github-cli gnome-disk-utility ruby tk picom vscode thunar rofi nodejs npm arandr nodejs npm arandr jellyfin-server jellyfin-web
 yay -S unzip neovim jre17-openjdk clang cmake pkg-config ninja p7zip debtap tree xz fzf neovim ruby nodejs npm
 
 git config --global user.email "eliogaldino79@outlook.com"
