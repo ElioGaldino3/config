@@ -41,5 +41,9 @@ sed -i -e '/^# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/s/^# //' /mnt/etc/sudoers
 arch-chroot /mnt echo '127.0.0.1      localhost' >> /etc/hosts
 arch-chroot /mnt echo '::1      localhost' >> /etc/hosts
 arch-chroot /mnt echo '127.0.1.1      ArchElio.localdomain' >> /etc/hosts
+sed -i -e '/^#GRUB_DISABLE_OS_PROBER=false/s/^#//' /etc/default/grub
+arch-chroot /mnt grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
+arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 systemctl --root /mnt enable dhcpcd NetworkManager
-arch-chroot /mnt
+echo "exec awesome" > /mnt/home/elio/.xinitrc
+umount -lR /mnt
