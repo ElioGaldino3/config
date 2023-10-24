@@ -6,12 +6,17 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ~/path/to/fsh
 
-yay -S unzip tmux jre17-openjdk neovim flameshot gnome-disk-utility ntfs-3g clang cmake pkg-config ninja p7zip debtap tree xz fzf docker scrcpy neovim copyq docker-compose github-cli gnome-disk-utility ruby tk picom vscode thunar rofi nodejs npm arandr nodejs npm arandr jellyfin-server jellyfin-web
+yay -S unzip tmux jre17-openjdk neovim flameshot gnome-disk-utility ntfs-3g clang cmake pkg-config ninja p7zip debtap tree xz fzf docker scrcpy neovim copyq docker-compose github-cli gnome-disk-utility ruby tk picom vscode thunar rofi nodejs npm arandr nodejs npm arandr jellyfin-server jellyfin-web xclip
 yay -S unzip neovim jre17-openjdk clang cmake pkg-config ninja p7zip debtap tree xz fzf neovim ruby nodejs npm
 
 git config --global user.email "eliogaldino79@outlook.com"
 git config --global user.name "Elio Galdino"
 git config --global init.defaultBranch main
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.ci commit
+git config --global alias.st status
+git config --global alias.cm '!git add -A && git commit -m'
 sudo usermod -aG docker $USER
 sudo systemctl enable docker.service
 sudo systemctl enable containerd.service
