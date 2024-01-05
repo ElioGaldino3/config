@@ -16,7 +16,7 @@ fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.profile
-source ~/path/to/fsh/fast-syntax-highlighting.plugin.zsh
+source ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/fsh/fast-syntax-highlighting.plugin.zsh
 
 
 # bun completions

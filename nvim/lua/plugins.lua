@@ -7,6 +7,7 @@ end
 lazy.setup({
   'nvim-tree/nvim-web-devicons',
   'shatur/neovim-ayu',
+  'bluz71/vim-moonfly-colors',
   'xiyaowong/transparent.nvim',
   'hoob3rt/lualine.nvim',
   'onsails/lspkind-nvim',
@@ -15,6 +16,8 @@ lazy.setup({
   'hrsh7th/nvim-cmp',     -- completion
   'mfussenegger/nvim-dap',
   'neovim/nvim-lspconfig',
+  --'TabbyML/vim-tabby',
+  --'nvim-tree/nvim-tree.lua',
   {
     "L3MON4D3/LuaSnip",
     dependencies = { "rafamadriz/friendly-snippets" },
@@ -46,7 +49,7 @@ lazy.setup({
   'famiu/bufdelete.nvim',
   'williamboman/mason.nvim',
   'williamboman/mason-lspconfig.nvim',
-  --'exafunction/codeium.vim',
+  'exafunction/codeium.vim',
   {
     "folke/flash.nvim",
     keys = {
@@ -85,5 +88,5 @@ lazy.setup({
   {
     'numtostr/comment.nvim',
     lazy = false,
-  }
+  },
 })

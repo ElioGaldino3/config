@@ -2,7 +2,21 @@ local status, lsp = pcall(require, 'lspconfig')
 if (not status) then return end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local on_time_attach_dart = true
+local on_time_attach_go_pls = true
 capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+local nvim_create_augroups = function(definitions)
+  for group_name, definition in pairs(definitions) do
+    vim.api.nvim_command('augroup ' .. group_name)
+    vim.api.nvim_command('autocmd!')
+    for _, def in ipairs(definition) do
+      local command = table.concat(vim.tbl_flatten { 'autocmd', def }, ' ')
+      vim.api.nvim_command(command)
+    end
+    vim.api.nvim_command('augroup END')
+  end
+end
 
 local contains_in = function(dictionary, target)
   for _, value in pairs(dictionary) do
@@ -22,16 +36,19 @@ local apply_fix_by_label = function(label)
   })
 end
 
-local on_time_attach_dart = true
-
-local on_attach = function(client, _)
-  if client.server_capabilities.documentFormattingProvider and not client.name == 'dartls' then
-    vim.api.nvim_command [[augroup Format]]
-    vim.api.nvim_command [[autocmd! * <buffer>]]
-    vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
-    vim.api.nvim_command [[autogroup END]]
+local gopls_on_attach = function(_, _)
+  if on_time_attach_go_pls then
+    nvim_create_augroups({
+      go_save = {
+        { "BufWritePre", "*.go", "lua vim.lsp.buf.format()" },
+      }
+    })
+    on_time_attach_go_pls = false
   end
-  if (on_time_attach_dart) then
+end
+
+local dartls_on_attach = function(_, _)
+  if on_time_attach_dart then
     vim.api.nvim_create_autocmd('BufWritePre', {
       pattern = { '*.dart' },
       callback = function(_)
@@ -40,6 +57,15 @@ local on_attach = function(client, _)
       end
     })
     on_time_attach_dart = false
+  end
+end
+
+local on_attach = function(client, _)
+  if client.server_capabilities.documentFormattingProvider then
+    vim.api.nvim_command [[augroup Format]]
+    vim.api.nvim_command [[autocmd! * <buffer>]]
+    vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
+    vim.api.nvim_command [[autogroup END]]
   end
 end
 
@@ -65,7 +91,18 @@ lsp.tsserver.setup {
 }
 
 lsp.dartls.setup {
-  on_attach = on_attach
+  on_attach = dartls_on_attach
+}
+
+lsp.rust_analyzer.setup {
+  on_attach = on_attach,
+  settings = {
+    ['rust-analyzer'] = {
+      diagnostics = {
+        enable = true,
+      }
+    }
+  }
 }
 
 
@@ -79,7 +116,7 @@ lsp.tailwindcss.setup {
 }
 
 lsp.gopls.setup {
-  on_attach = on_attach
+  on_attach = gopls_on_attach
 }
 
 lsp.pylsp.setup {

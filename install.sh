@@ -4,41 +4,35 @@
 # O interpretador Bash usa '#!' (shebang) para determinar qual shell usar
 
 # Variável de exemplo
-nome="Elio"
+nome="João"
 
 # Exibe uma mensagem na tela
 echo "Olá, $nome! Este é um exemplo de script shell."
 
-parted /dev/nvme1n1 mklabel gpt mkpart primary fat32 1MiB 513MiB mkpart primary btrfs 513MiB 100%
+# Fim do script
 
 mkfs.vfat -F32 -n EFI /dev/nvme1n1p1
 mkfs.btrfs -f -L linuxroot /dev/nvme1n1p2
-mkdir /backup
-mount /nvme0n1p1 /backup
 mount /dev/nvme1n1p2 /mount
+mkdir /mnt/boot/efi -p
+mount /dev/nvme1n1p1 /mnt/boot/efi
 
-btrfs su cr /mnt/@
-btrfs su cr /mnt/@home
-btrfs su cr /mnt/@snapshots
-btrfs su cr /mnt/@var_log
-umount /mnt
-mount -o noatime,compress=lzo,space_cache=v2,subvol=@ /dev/vda3 /mnt
-mkdir -p /mnt/{boot,home,.snapshots,var_log}
-mount -o noatime,compress=lzo,space_cache=v2,subvol=@home /dev/nvme1n1p2 /mnt/home
-mount -o noatime,compress=lzo,space_cache=v2,subvol=@snapshots /dev/nvme1n1p2 /mnt/.snapshots
-mount -o noatime,compress=lzo,space_cache=v2,subvol=@var_log /dev/nvme1n1p2 /mnt/var_log
-
-mount /dev/nvme1n1p1 /mnt/boot
+btrfs subvolume create /mnt/home
+btrfs subvolume create /mnt/srv
+btrfs subvolume create /mnt/var
+btrfs subvolume create /mnt/var/log
+btrfs subvolume create /mnt/var/cache
+btrfs subvolume create /mnt/var/tmp
 
 timedatectl set-timezone America/Maceio
-
+mkdir /backup
+mount /dev/nvme0n1p1 /backup
 cp /backup/mirrorlist /etc/pacman.d/
 vim /etc/pacman.conf
-pacstrap -i base base-devel linux linux-firmware linux-headers pulseaudio pulseaudio-bluetooth alsa-utils cups bluez dialog bluez-utils intel-ucode vim btrfs-progs dos-fsutils util-linux git unzip sbctl networkmanager sudo neofetch dhcpcd wget curl ripgrep fd lazygit fd clang cmake ruby go pulseaudio gnome-disk-utility chromium zsh pazucontrol rsync xorg-server xorg-xinit alacritty awesome update-grup ntfs-3g ngork vlc ffmpeg android-file-transfer firebase qbittorent pacman-contrib ab grub efibootmgr dosfstools mtools os-prober
+pacstrap -i base base-devel linux linux-firmware linux-headers intel-ucode vim btrfs-progs dos-fsutils util-linux git unzip sbctl networkmanager sudo neofetch dhcpcd wget curl ripgrep fd lazygit fd clang cmake ruby go pulseaudio gnome-disk-utility chromium zsh pazucontrol rsync xorg-server xorg-xinit alacritty awesome update-grup ntfs-3g ngork vlc ffmpeg android-file-transfer firebase qbittorent pacman-contrib ab grub efibootmgr dosfstools mtools os-prober
 genfstab -U /mnt >> /mnt/etc/fstab
 sed -i -e "/^#"pt_BR.UTF-8"/s/^#//" /mnt/etc/locale.gen
 systemd-firstboot --root /mnt --prompt
-arch-chroot /mnt hwclock --systohc
 arch-chroot /mnt locale-gen
 arch-chroot /mnt passwd
 arch-chroot /mnt useradd -G wheel,power,storage -m -s /usr/bin/zsh elio

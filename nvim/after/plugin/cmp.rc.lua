@@ -42,24 +42,25 @@ cmp.setup({
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
-    ["<Tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
-      else
-        fallback()
-      end
-    end, { "i", "s" }),
-    ["<S-Tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
-      end
-    end, { "i", "s" }),
+    ["<Tab>"] = cmp.mapping(
+      function(fallback)
+        if cmp.visible() and cmp.get_active_entry() then
+          -- completion if a cmp item is selected
+          cmp.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace })
+        elseif vim.fn.exists('b:_codeium_completions') ~= 0 then
+          -- accept codeium completion if visible
+          vim.fn['codeium#Accept']()
+          fallback()
+        elseif cmp.visible() then
+          -- select first item if visible
+          cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace })
+        elseif has_words_before() then
+          -- show autocomplete
+          cmp.complete()
+        else
+          fallback()
+        end
+      end, { "i", "s" }),
     ['<CR>'] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
@@ -68,6 +69,7 @@ cmp.setup({
     ['<C-j>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
   }),
   sources = {
+    { name = "copilot",  max_item_count = 5 },
     { name = "luasnip",  max_item_count = 5 },
     { name = "nvim_lsp", max_item_count = 15 },
     { name = "nvim_lua" },
