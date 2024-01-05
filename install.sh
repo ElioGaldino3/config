@@ -4,12 +4,12 @@
 # O interpretador Bash usa '#!' (shebang) para determinar qual shell usar
 
 # Variável de exemplo
-nome="João"
+nome="Elio"
 
 # Exibe uma mensagem na tela
 echo "Olá, $nome! Este é um exemplo de script shell."
 
-# Fim do script
+parted /dev/nvme1n1 mklabel gpt mkpart primary fat32 1MiB 513MiB mkpart primary btrfs 513MiB 100%
 
 mkfs.vfat -F32 -n EFI /dev/nvme1n1p1
 mkfs.btrfs -f -L linuxroot /dev/nvme1n1p2
