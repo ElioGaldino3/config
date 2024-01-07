@@ -30,6 +30,43 @@ final screenWidth = size.width;
 final screenHeigth = size.height;
 ]], {}))
 
+local column = s('coll', fmta([[
+Column(
+  children: [
+    <>,
+  ],
+)
+]], {i(1)}))
+
+local svg_picture = s('svga', fmta([[
+SvgPicture.asset(
+  '<>',
+  width: <>,
+  height: <>,
+),
+]], {i(1), i(2), i(2)}))
+
+local main_axis = s('maxis', fmta([[
+mainAxisAlignment: MainAxisAlignment.<>
+]], {i(1) }))
+
+local cross_axis = s('caxis', fmta([[
+crossAxisAlignment: CrossAxisAlignment.<>
+]], {i(1) }))
+
+local text = s('tx', fmta([[
+Text('<>')
+]], {i(1) }))
+
+local text_editting_controller = s('tcont', fmta([[
+final TextEditingController _textEditingController<> = TextEditingController();
+]], {i(1) }))
+
+local disposer = s('disp', fmta([[
+disposer();
+]], {}))
+
+
 local child = s('chi', t('child: '))
 local child_slash = s('chs', t('child: '))
 local on_pressed = s('onP', t('onPressed: '))
@@ -44,6 +81,13 @@ table.insert(autosnippets, child)
 table.insert(autosnippets, child_slash)
 table.insert(autosnippets, on_pressed)
 table.insert(autosnippets, function_void)
+table.insert(autosnippets, column)
+table.insert(autosnippets,svg_picture)
+table.insert(autosnippets, main_axis)
+table.insert(autosnippets, cross_axis)
+table.insert(autosnippets,text)
+table.insert(autosnippets,text_editting_controller)
+table.insert(autosnippets,disposer)
 
 
 return snippets, autosnippets
