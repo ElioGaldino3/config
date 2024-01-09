@@ -38,3 +38,12 @@ foreground = "#edeadd"
 text = "CellBackground"
 cursor = "CellForeground"
 
+[keyboard]
+bindings = [
+  {key = "C", mods = "Control", action = "Copy"},
+  {key = "V", mods = "Control", action = "Paste"},
+  {key = "F2", chars="\e"},
+  {key = "F3", chars='\\u000C'}
+]
+#.{ key: "c", mods: ["Control"], action: "Copy" }  # para copiar
+#  - { key: "v", mods: ["Control"], action: "Paste" }  # para colar

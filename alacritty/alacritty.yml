@@ -762,7 +762,7 @@ key_bindings:
   - { key: V, mods: Control, action: Paste }
   - { key: C, mods: Control, action: Copy }
   - { key: F2, chars: "\x03" }
-  - { key: F3, chars: "\x0c" }
+  - { key: F3, chars: "\x1b[1;6I" }
   #- { key: L,         mods: Control,                    action: ClearLogNotice }
 #- { key: PageUp,    mods: Shift,   mode: ~Alt,        action: ScrollPageUp   }
 #- { key: PageDown,  mods: Shift,   mode: ~Alt,        action: ScrollPageDown }

@@ -62,6 +62,14 @@ local text_editting_controller = s('tcont', fmta([[
 final TextEditingController _textEditingController<> = TextEditingController();
 ]], {i(1) }))
 
+local text_form_field  = s('tff', fmta([[
+CustomTextFormField(onChanged: (v) =<> <> = v)
+]], {t(''),i(1)}))
+
+local custom_button = s('cbu', fmta([[
+CustomButton(onPressed: <>, child: const Text('<>').defaultFont().white()),
+]], {i(''),i(1)}))
+
 local disposer = s('disp', fmta([[
 disposer();
 ]], {}))
@@ -88,6 +96,9 @@ table.insert(autosnippets, cross_axis)
 table.insert(autosnippets,text)
 table.insert(autosnippets,text_editting_controller)
 table.insert(autosnippets,disposer)
+table.insert(autosnippets,text_form_field);
+table.insert(autosnippets,custom_button);
+
 
 
 return snippets, autosnippets

@@ -32,7 +32,7 @@ alias cleanlibs="find . -name 'node_modules' -type d -prune -print | xargs du -c
 alias py="python"
 #alias trab="proj; cd eliana; cd app;code .; cd ../backend; yarn start:prod"
 #alias trab="proj; cd Trabalho/ifood_layout; nvim"
-alias trab="proj; cd Flutter/ifood_design; tmux"
+alias trab="proj; cd gg_food/gg_food_customer_app; tmux"
 alias eleve-dev="sudo http-server $HOME/Projetos/Eleve/dev_flutter/build/web -p 80 -c-1"
 alias vi="nvim"
 alias vim="nvim"
@@ -41,6 +41,7 @@ alias cvi="vi ~/.config/nvim"
 alias czsh="vi ~/.zshrc"
 alias cpro="vi ~/.profile"
 alias luasnip="/home/elio/Projetos/luasnip_generator/build/linux/x64/release/bundle/luasnip_generator"
+alias emu="emulator -avd flutter2 -gpu host -accel on -nocache -no-snapstorage -no-snapshot -noskin -noaudio"
 
 function cc {
   if [ ! -n "$1" ]; then
