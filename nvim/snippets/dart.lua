@@ -38,6 +38,14 @@ Column(
 )
 ]], {i(1)}))
 
+local column = s('roll', fmta([[
+Row(
+  children: [
+    <>,
+  ],
+)
+]], {i(1)}))
+
 local svg_picture = s('svga', fmta([[
 SvgPicture.asset(
   '<>',
@@ -47,11 +55,11 @@ SvgPicture.asset(
 ]], {i(1), i(2), i(2)}))
 
 local main_axis = s('maxis', fmta([[
-mainAxisAlignment: MainAxisAlignment.<>
+mainAxisAlignment: MainAxisAlignment.<>,
 ]], {i(1) }))
 
 local cross_axis = s('caxis', fmta([[
-crossAxisAlignment: CrossAxisAlignment.<>
+crossAxisAlignment: CrossAxisAlignment.<>,
 ]], {i(1) }))
 
 local text = s('tx', fmta([[
@@ -64,7 +72,7 @@ final TextEditingController _textEditingController<> = TextEditingController();
 
 local text_form_field  = s('tff', fmta([[
 CustomTextFormField(onChanged: (v) =<> <> = v)
-]], {t(''),i(1)}))
+]], {t('>'),i(1)}))
 
 local custom_button = s('cbu', fmta([[
 CustomButton(onPressed: <>, child: const Text('<>').defaultFont().white()),
