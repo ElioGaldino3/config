@@ -83,6 +83,11 @@ lsp.lua_ls.setup {
     }
   }
 }
+
+lsp.biome.setup {
+  on_attach = on_attach,
+}
+
 lsp.tsserver.setup {
   on_attach = on_attach,
   filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript", "javascript.jsx" },
