@@ -47,6 +47,7 @@ local gopls_on_attach = function(_, _)
   end
 end
 
+
 local dartls_on_attach = function(_, _)
   if on_time_attach_dart then
     vim.api.nvim_create_autocmd('BufWritePre', {
@@ -89,7 +90,6 @@ lsp.biome.setup {
 }
 
 lsp.tsserver.setup {
-  on_attach = on_attach,
   filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript", "javascript.jsx" },
   cmd = { "typescript-language-server", "--stdio" },
   capabilities = capabilities

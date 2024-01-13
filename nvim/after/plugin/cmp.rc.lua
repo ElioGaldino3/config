@@ -3,6 +3,11 @@ local status2, luasnip = pcall(require, "luasnip")
 if (not status and not status2) then return end
 local lspkind = require 'lspkind'
 
+local check_back_space = function()
+  local col = vim.fn.col '.' - 1
+  return col == 0 or vim.fn.getline('.'):sub(col, col):match '%s' ~= nil
+end
+
 local kind_icons = {
   Text = "",
   Method = "m",
@@ -42,25 +47,26 @@ cmp.setup({
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
-    ["<Tab>"] = cmp.mapping(
-      function(fallback)
-        if cmp.visible() and cmp.get_active_entry() then
-          -- completion if a cmp item is selected
-          cmp.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace })
-        elseif vim.fn.exists('b:_codeium_completions') ~= 0 then
-          -- accept codeium completion if visible
-          vim.fn['codeium#Accept']()
-          fallback()
-        elseif cmp.visible() then
-          -- select first item if visible
-          cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace })
-        elseif has_words_before() then
-          -- show autocomplete
-          cmp.complete()
-        else
-          fallback()
-        end
-      end, { "i", "s" }),
+    ['<Tab>'] = function(core, fallback)
+      if vim.fn.pumvisible() == 1 then
+        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-n>', true, true, true), 'n')
+      elseif luasnip.expand_or_jumpable() then
+        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
+      elseif not check_back_space() then
+        cmp.mapping.complete()(core, fallback)
+      else
+        fallback()
+      end
+    end,
+    ['<S-Tab>'] = function(_, fallback)
+      if vim.fn.pumvisible() == 1 then
+        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-p>', true, true, true), 'n')
+      elseif luasnip.jumpable(-1) then
+        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-jump-prev', true, true, true), '')
+      else
+        fallback()
+      end
+    end,
     ['<CR>'] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,

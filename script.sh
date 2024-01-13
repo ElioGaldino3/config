@@ -4,9 +4,9 @@ cd /tmp && wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ~/path/to/fsh
+git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/fsh
 
-yay -S unzip tmux dbvis postgresql-jdbc jre17-openjdk neovim flameshot ntfs-3g clang cmake pkg-config ninja p7zip debtap tree xz fzf docker scrcpy neovim copyq docker-compose github-cli gnome-disk-utility ruby tk thunar rofi noto-fonts-emoji arandr nodejs npm arandr jellyfin-server jellyfin-web xclip android-file-transfer inkscape discord scalculator nvidia nvidia-utils lib32-nvidia-utils nvidia-settings bruno sqlc qbittorrent firebase vlc 
+yay -S unzip tmux dbvis postgresql-jdbc jre17-openjdk neovim flameshot ntfs-3g clang cmake pkg-config ninja p7zip debtap tree xz fzf docker scrcpy neovim copyq docker-compose github-cli gnome-disk-utility ruby tk thunar rofi noto-fonts-emoji arandr nodejs npm arandr jellyfin-server jellyfin-web xclip android-file-transfer inkscape discord scalculator nvidia nvidia-utils lib32-nvidia-utils nvidia-settings sqlc qbittorrent firebase vlc 
 yay -S unzip neovim jre17-openjdk clang cmake pkg-config ninja p7zip debtap tree xz fzf neovim ruby nodejs npm
 
 git config --global user.email "eliogaldino79@outlook.com"
@@ -17,6 +17,7 @@ git config --global alias.br branch
 git config --global alias.ci commit
 git config --global alias.st status
 git config --global alias.cm '!git add -A && git commit -m'
+sudo npm install -g typescript typescript-language-server sql-language-server http-server
 sudo usermod -aG docker $USER
 sudo systemctl enable docker.service
 sudo systemctl enable containerd.service
@@ -44,12 +45,14 @@ rustup default nightly && rustup update
 cargo install tree-sitter-cli exa
 rustup component add rust-analyzer
 
-flutterLINK="https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.13.8-stable.tar.xz"
-wget $flutterLINK -O flutter.tar; mv ~/Downloads/commandlinetools* ./android.zip
+flutterLINK="https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.16.6-stable.tar.xz"
+wget $flutterLINK -O flutter.tar; mv ~/Downloads/android-studio* ./android.tar.gz
 
-unzip android.zip; tar -xf flutter.tar
+tar -xf android.zip; tar -xf flutter.tar
 rm flutter.tar; rm android.zip
-mkdir $HOME/android/cmdline-tools/tools -p; mv ./cmdline-tools/bin $HOME/android/cmdline-tools/tools; mv ./cmdline-tools/lib $HOME/android/cmdline-tools/tools; mv ./cmdline-tools/NOTICE.txt $HOME/android/cmdline-tools/tools;mv ./cmdline-tools/source.properties $HOME/android/cmdline-tools/tools; rm -rf ./cmdline-tools
+./android-studio/bin/studio.sh
+cd /tmp/ && git clone https://github.com/biomejs/biome.git && cd biome && cargo build --release && mv ./target/release/biome ~/.development/bins/
+#mkdir $HOME/android/cmdline-tools/tools -p; mv ./cmdline-tools/bin $HOME/android/cmdline-tools/tools; mv ./cmdline-tools/lib $HOME/android/cmdline-tools/tools; mv ./cmdline-tools/NOTICE.txt $HOME/android/cmdline-tools/tools;mv ./cmdline-tools/source.properties $HOME/android/cmdline-tools/tools; rm -rf ./cmdline-tools
 sudo nmcli -g name,type connection  show  --active | awk -F: '/ethernet|wireless/ { print $1 }' | while read connection
 do
   sudo nmcli con mod "$connection" ipv6.ignore-auto-dns yes
@@ -68,4 +71,5 @@ sudo vim /etc/systemd/system/getty.target.wants/getty@tty1.service
 
 sudo systemctl daemon-reload
 sudo systemctl start getty@tty1.service
-sudo systemctl --user enable pulseaudio
+systemctl --user enable pulseaudio
+sudo systemctl enable bluetooth
