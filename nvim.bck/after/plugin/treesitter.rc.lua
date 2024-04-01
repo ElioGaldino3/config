@@ -9,7 +9,7 @@ ts.setup {
   },
   indent = {
     enable = true,
-    disable = {'dart', 'flutter'},
+    disable = { 'dart', 'flutter' },
   },
   ensure_installed = {
     "markdown",

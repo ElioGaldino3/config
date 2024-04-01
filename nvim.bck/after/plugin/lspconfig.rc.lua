@@ -1,10 +1,8 @@
 local status, lsp = pcall(require, 'lspconfig')
 if (not status) then return end
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local on_time_attach_dart = true
 local on_time_attach_go_pls = true
-capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local nvim_create_augroups = function(definitions)
   for group_name, definition in pairs(definitions) do
@@ -36,32 +34,47 @@ local apply_fix_by_label = function(label)
   })
 end
 
-local gopls_on_attach = function(_, _)
-  if on_time_attach_go_pls then
-    nvim_create_augroups({
-      go_save = {
-        { "BufWritePre", "*.go", "lua vim.lsp.buf.format()" },
-      }
-    })
-    on_time_attach_go_pls = false
-  end
-end
-
 
 local dartls_on_attach = function(_, _)
-  if on_time_attach_dart then
-    vim.api.nvim_create_autocmd('BufWritePre', {
-      pattern = { '*.dart' },
-      callback = function(_)
-        vim.lsp.buf.format()
-        apply_fix_by_label('Fix All')
-      end
-    })
-    on_time_attach_dart = false
-  end
 end
 
 local on_attach = function(client, _)
+  if client.name == "tsserver" then
+    client.server_capabilities.documentFormattingProvider = false
+  end
+  if client.name == "gopls" then
+    if on_time_attach_go_pls then
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        pattern = { '*.go' },
+        callback = function(_)
+          vim.lsp.buf.format()
+          apply_fix_by_label('Organize Imports')
+        end
+      })
+      on_time_attach_go_pls = false
+    end
+    return
+  end
+  if client.name == "dartls" then
+    if on_time_attach_dart then
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        pattern = { '*.dart' },
+        callback = function(_)
+          vim.lsp.buf.format()
+          apply_fix_by_label('Fix All')
+        end
+      })
+      on_time_attach_dart = false
+    end
+    return
+  end
+  if client.name == "eslint" then
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      command = "EslintFixAll",
+    })
+    return
+  end
   if client.server_capabilities.documentFormattingProvider then
     vim.api.nvim_command [[augroup Format]]
     vim.api.nvim_command [[autocmd! * <buffer>]]
@@ -69,6 +82,10 @@ local on_attach = function(client, _)
     vim.api.nvim_command [[autogroup END]]
   end
 end
+
+lsp.eslint.setup {
+  on_attach = on_attach
+}
 
 lsp.lua_ls.setup {
   on_attach = on_attach,
@@ -85,14 +102,10 @@ lsp.lua_ls.setup {
   }
 }
 
-lsp.biome.setup {
-  on_attach = on_attach,
-}
-
 lsp.tsserver.setup {
   filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript", "javascript.jsx" },
   cmd = { "typescript-language-server", "--stdio" },
-  capabilities = capabilities
+  on_attach = on_attach
 }
 
 lsp.dartls.setup {
@@ -112,7 +125,6 @@ lsp.rust_analyzer.setup {
 
 
 lsp.html.setup {
-  capabilities = capabilities,
   on_attach = on_attach
 }
 
@@ -121,9 +133,13 @@ lsp.tailwindcss.setup {
 }
 
 lsp.gopls.setup {
-  on_attach = gopls_on_attach
+  on_attach = on_attach
 }
 
 lsp.pylsp.setup {
+  on_attach = on_attach
+}
+
+lsp.yamlls.setup {
   on_attach = on_attach
 }

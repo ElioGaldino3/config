@@ -14,8 +14,16 @@ telescope.setup {
   defaults = {
     mappings = {
       n = {
-        ["q"] = actions.close
+        ["q"] = actions.close,
+        ["<esc>"] = actions.close,
+        ["j"] = actions.move_selection_next,
+        ["k"] = actions.move_selection_previous,
       },
+      i = {
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous,
+        ["q"] = actions.close,
+      }
     },
   },
   extensions = {
@@ -59,7 +67,7 @@ telescope.setup {
 
 telescope.load_extension("file_browser")
 
-vim.keymap.set('n', ';f',
+vim.keymap.set('n', 'ff',
   function()
     builtin.find_files({
       no_ignore = false,
@@ -67,7 +75,7 @@ vim.keymap.set('n', ';f',
     })
   end)
 
-vim.keymap.set('n', ';r', function()
+vim.keymap.set('n', 'ft', function()
   builtin.live_grep()
 end)
 vim.keymap.set('n', '\\\\', function()
@@ -92,6 +100,5 @@ vim.keymap.set("n", "<leader>e", function()
     previewer = false,
     initial_mode = "normal",
     layout_config = { height = 40 }
-
   })
 end)

@@ -45,10 +45,10 @@ rustup default nightly && rustup update
 cargo install tree-sitter-cli exa
 rustup component add rust-analyzer
 
-flutterLINK="https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.16.6-stable.tar.xz"
-wget $flutterLINK -O flutter.tar; mv ~/Downloads/android-studio* ./android.tar.gz
+flutterLINK="https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.16.8-stable.tar.xz"
+wget $flutterLINK -O flutter.tar; mv ~/Downloads/command* ./android.zip
 
-tar -xf android.zip; tar -xf flutter.tar
+unzip android.zip; tar -xf flutter.tar
 rm flutter.tar; rm android.zip
 ./android-studio/bin/studio.sh
 cd /tmp/ && git clone https://github.com/biomejs/biome.git && cd biome && cargo build --release && mv ./target/release/biome ~/.development/bins/
@@ -57,7 +57,7 @@ sudo nmcli -g name,type connection  show  --active | awk -F: '/ethernet|wireless
 do
   sudo nmcli con mod "$connection" ipv6.ignore-auto-dns yes
   sudo nmcli con mod "$connection" ipv4.ignore-auto-dns yes
-  sudo nmcli con mod "$connection" ipv4.addresses "192.168.3.22/24" ipv4.gateway 192.168.3.1
+  sudo nmcli con mod "$connection" ipv4.addresses "192.168.0.22/24" ipv4.gateway 192.168.0.1
   sudo nmcli con mod "$connection" ipv4.dns "1.1.1.1 1.0.0.1"
   sudo nmcli con down "$connection" && sudo nmcli con up "$connection"
 done

@@ -8,6 +8,7 @@ keymap.set('n', '<leader>r', 'A;<esc>', s)
 keymap.set('n', '<leader>w', ':w<cr>', s)
 keymap.set('n', '<leader>q', ':w<cr>:lua require("bufdelete").bufdelete(0)<cr>', s)
 
+keymap.set('n', 'gl', ':lua vim.diagnostic.open_float()<CR>')
 -- delete backward word
 keymap.set('n', 'dw', 'vb"_d')
 -- Select all (ctrl+a)

@@ -9,7 +9,7 @@ lazy.setup({
   'shatur/neovim-ayu',
   'bluz71/vim-moonfly-colors',
   'xiyaowong/transparent.nvim',
-  'hoob3rt/lualine.nvim',
+  --'hoob3rt/lualine.nvim',
   'onsails/lspkind-nvim',
   'hrsh7th/cmp-buffer',
   'hrsh7th/cmp-nvim-lsp', -- nvim-cmp source for neovim

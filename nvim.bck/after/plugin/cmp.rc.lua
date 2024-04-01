@@ -47,13 +47,13 @@ cmp.setup({
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
-    ['<Tab>'] = function(core, fallback)
+    ['<Tab>'] = function(fallback)
       if vim.fn.pumvisible() == 1 then
         vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-n>', true, true, true), 'n')
       elseif luasnip.expand_or_jumpable() then
         vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
-      elseif not check_back_space() then
-        cmp.mapping.complete()(core, fallback)
+      elseif check_back_space() then
+        fallback()
       else
         fallback()
       end

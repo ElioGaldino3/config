@@ -28,9 +28,15 @@ export const <> = pgTable("<>", {
 });
 ]], { i(1), i(2), t('>'), i(3) }))
 
+local current_firebase_user = s('fbu', fmta([[
+const firebaseUser = await currentUser()
+<>
+]], { i(1) }))
+
 
 table.insert(autosnippets, relations);
 table.insert(autosnippets, many_to_many);
 table.insert(autosnippets, pg_table);
+table.insert(autosnippets, current_firebase_user)
 
 return snippets, autosnippets
