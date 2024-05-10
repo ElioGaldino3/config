@@ -29,7 +29,7 @@ mkdir /backup
 mount /dev/nvme0n1p1 /backup
 cp /backup/mirrorlist /etc/pacman.d/
 vim /etc/pacman.conf
-pacstrap -i base base-devel linux linux-firmware linux-headers intel-ucode vim btrfs-progs dos-fsutils util-linux git unzip sbctl networkmanager sudo neofetch dhcpcd wget curl ripgrep fd lazygit fd clang cmake ruby go pulseaudio gnome-disk-utility chromium zsh pazucontrol rsync xorg-server xorg-xinit alacritty awesome update-grup ntfs-3g ngork vlc ffmpeg android-file-transfer firebase qbittorent pacman-contrib ab grub efibootmgr dosfstools mtools os-prober
+pacstrap -i base base-devel linux linux-firmware linux-headers intel-ucode vim btrfs-progs dos-fsutils util-linux os-prober git unzip networkmanager sudo neofetch dhcpcd wget curl ripgrep fd lazygit fd clang cmake ruby go pulseaudio gnome-disk-utility chromium zsh rsync xorg-server xorg-xinit alacritty awesome update-grub ntfs-3g vlc ffmpeg android-file-transfer firebase qbittorent pacman-contrib ab grub efibootmgr dosfstools
 genfstab -U /mnt >> /mnt/etc/fstab
 sed -i -e "/^#"pt_BR.UTF-8"/s/^#//" /mnt/etc/locale.gen
 systemd-firstboot --root /mnt --prompt
