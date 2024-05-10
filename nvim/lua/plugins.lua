@@ -6,7 +6,6 @@ end
 
 lazy.setup({
   'nvim-tree/nvim-web-devicons',
-  'shatur/neovim-ayu',
   'bluz71/vim-moonfly-colors',
   'xiyaowong/transparent.nvim',
   --'hoob3rt/lualine.nvim',
@@ -49,7 +48,7 @@ lazy.setup({
   'famiu/bufdelete.nvim',
   'williamboman/mason.nvim',
   'williamboman/mason-lspconfig.nvim',
-  'exafunction/codeium.vim',
+  { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
   {
     "folke/flash.nvim",
     keys = {
