@@ -2,11 +2,11 @@ export PATH="$PATH:$HOME/.development/flutter/bin"
 export PATH="$PATH:$HOME/.development/bins"
 export PATH="$PATH:$HOME/go/bin"
 export PATH="$PATH:$HOME/.local/bin"
-export ANDROID_HOME=$HOME/android
 export JAVA_HOME="/usr/lib/jvm/default/"
-export PATH=$ANDROID_HOME/cmdline-tools/tools/bin/:$PATH
-export PATH=$ANDROID_HOME/emulator/:$PATH
-export PATH=$ANDROID_HOME/platform-tools/:$PATH
+export ANDROID_HOME2=$HOME/android
+export PATH=$ANDROID_HOME2/cmdline-tools/tools/bin/:$PATH
+export PATH=$ANDROID_HOME2/emulator/:$PATH
+export PATH=$ANDROID_HOME2/platform-tools/:$PATH
 export CHROME_EXECUTABLE="$(which chromium)"
 
 . "$HOME/.cargo/env"
