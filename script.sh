@@ -6,7 +6,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/fsh
 
-yay -S unzip tmux dbvis postgresql-jdbc jre17-openjdk neovim flameshot ntfs-3g clang cmake pkg-config ninja p7zip debtap tree xz fzf docker scrcpy neovim copyq docker-compose github-cli gnome-disk-utility ruby tk thunar rofi noto-fonts-emoji arandr nodejs npm arandr jellyfin-server jellyfin-web xclip android-file-transfer inkscape discord scalculator nvidia nvidia-utils lib32-nvidia-utils nvidia-settings sqlc qbittorrent firebase vlc 
+yay -S unzip tmux dbvis postgresql-jdbc jdk11-openjdk neovim flameshot ntfs-3g clang cmake pkg-config ninja p7zip debtap tree xz fzf docker scrcpy neovim copyq docker-compose github-cli gnome-disk-utility ruby tk thunar rofi noto-fonts-emoji arandr nodejs npm arandr jellyfin-server jellyfin-web xclip android-file-transfer inkscape discord scalculator nvidia nvidia-utils lib32-nvidia-utils nvidia-settings sqlc qbittorrent firebase vlc 
 yay -S unzip neovim jre17-openjdk clang cmake pkg-config ninja p7zip debtap tree xz fzf neovim ruby nodejs npm
 
 git config --global user.email "eliogaldino79@outlook.com"
@@ -53,6 +53,9 @@ rm flutter.tar; rm android.zip
 ./android-studio/bin/studio.sh
 cd /tmp/ && git clone https://github.com/biomejs/biome.git && cd biome && cargo build --release && mv ./target/release/biome ~/.development/bins/
 #mkdir $HOME/android/cmdline-tools/tools -p; mv ./cmdline-tools/bin $HOME/android/cmdline-tools/tools; mv ./cmdline-tools/lib $HOME/android/cmdline-tools/tools; mv ./cmdline-tools/NOTICE.txt $HOME/android/cmdline-tools/tools;mv ./cmdline-tools/source.properties $HOME/android/cmdline-tools/tools; rm -rf ./cmdline-tools
+
+sdkmanager --install "platform-tools" "emulator" "cmdline-tools;latest" "build-tools;34.0.0" "platforms;android-34"
+
 sudo nmcli -g name,type connection  show  --active | awk -F: '/ethernet|wireless/ { print $1 }' | while read connection
 do
   sudo nmcli con mod "$connection" ipv6.ignore-auto-dns yes
