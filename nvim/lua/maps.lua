@@ -26,3 +26,5 @@ keymap.set('n', '<C-j>', '<C-w>j')
 keymap.set('n', '<C-l>', '<C-w>l')
 
 keymap.set('i', '<F6>', '<esc>la,<space>')
+
+keymap.set('n', '<leader>s', ':%s/')

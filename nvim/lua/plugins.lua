@@ -8,8 +8,10 @@ lazy.setup({
   'nvim-tree/nvim-web-devicons',
   'bluz71/vim-moonfly-colors',
   'xiyaowong/transparent.nvim',
+    'stevearc/conform.nvim',
   --'hoob3rt/lualine.nvim',
   'onsails/lspkind-nvim',
+  'echasnovski/mini.nvim',
   'hrsh7th/cmp-buffer',
   'hrsh7th/cmp-nvim-lsp', -- nvim-cmp source for neovim
   'hrsh7th/nvim-cmp',     -- completion
