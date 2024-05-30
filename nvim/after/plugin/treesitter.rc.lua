@@ -28,7 +28,7 @@ ts.setup {
     "sql"
   },
   autotag = {
-    enable = true,
+    enable = false,
   },
   context_commentstring = {
     enable         = true,

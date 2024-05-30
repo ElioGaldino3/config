@@ -42,6 +42,8 @@ alias czsh="vi ~/.zshrc"
 alias cpro="vi ~/.profile"
 alias luasnip="/home/elio/Projetos/luasnip_generator/build/linux/x64/release/bundle/luasnip_generator"
 alias emu="emulator -avd flutter2 -gpu host -accel on -nocache -no-snapstorage -no-snapshot -noskin -noaudio"
+alias dmods="cd $HOME/.local/share/Steam/steamapps/common/Don\'t\ Starve\ Together/mods"
+alias dst="cd /home/elio/.steam/steam/steamapps/common/Don\'t\ Starve\ Together/mods"
 
 function cc {
   if [ ! -n "$1" ]; then

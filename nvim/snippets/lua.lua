@@ -5,12 +5,8 @@ local fmta = require("luasnip.extras.fmt").fmta
 
 local snippets, auto_snippets = {}, {}
 
-local my_first_snippet = s("myFirstSnippet", {
-  t({ "My First Snippet, Hello World!", "" }),
-  t("Second, line"),
-  i(1, " placeholder text")
-})
+local line_snippet = s('cln', fmta("local <> = s(<>, fmta('<>', {<>}))", { i(1), i(2), i(3), i(4) }))
 
-table.insert(snippets, my_first_snippet)
+table.insert(auto_snippets, line_snippet)
 
 return snippets, auto_snippets

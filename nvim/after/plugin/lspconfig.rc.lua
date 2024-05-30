@@ -34,13 +34,17 @@ local apply_fix_by_label = function(label)
   })
 end
 
-
-local dartls_on_attach = function(_, _)
-end
-
 local on_attach = function(client, _)
+  if client == nil then return end
+  vim.api.nvim_create_autocmd('BufWritePre', {
+    pattern = "*",
+    callback = function()
+      require('conform').format()
+    end
+  })
   if client.name == "tsserver" then
     client.server_capabilities.documentFormattingProvider = false
+    return
   end
   if client.name == "gopls" then
     if on_time_attach_go_pls then
@@ -60,26 +64,12 @@ local on_attach = function(client, _)
       vim.api.nvim_create_autocmd('BufWritePre', {
         pattern = { '*.dart' },
         callback = function(_)
-          vim.lsp.buf.format()
           apply_fix_by_label('Fix All')
         end
       })
       on_time_attach_dart = false
     end
     return
-  end
-  if client.name == "eslint" then
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      buffer = bufnr,
-      command = "EslintFixAll",
-    })
-    return
-  end
-  if client.server_capabilities.documentFormattingProvider then
-    vim.api.nvim_command [[augroup Format]]
-    vim.api.nvim_command [[autocmd! * <buffer>]]
-    vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
-    vim.api.nvim_command [[autogroup END]]
   end
 end
 
@@ -95,7 +85,10 @@ lsp.lua_ls.setup {
         globals = { 'vim' }
       },
       workspace = {
-        library = vim.api.nvim_get_runtime_file("", true),
+        library = {
+          vim.api.nvim_get_runtime_file("", true),
+          "/home/elio/Projetos/DST/scripts"
+        },
         checkThirdParty = false
       }
     }
@@ -109,7 +102,7 @@ lsp.tsserver.setup {
 }
 
 lsp.dartls.setup {
-  on_attach = dartls_on_attach
+  on_attach = on_attach
 }
 
 lsp.rust_analyzer.setup {
