@@ -23,7 +23,7 @@ background = "0x10100E"
 foreground = "0xC6C6C4"
 
 [font]
-size = 13.0
+size = 12.0
 
 [font.bold]
 family = "JetBrainsMono NerdFont"
@@ -32,10 +32,6 @@ style = "Bold"
 [font.normal]
 family = "JetBrainsMono NerdFont"
 style = "Normal"
-
-[font.offset]
-x = 0
-y = 3
 
 [[keyboard.bindings]]
 action = "Paste"
@@ -54,6 +50,20 @@ key = "F2"
 [[keyboard.bindings]]
 chars = "\u001B[1;6I"
 key = "F3"
+
+[window]
+opacity = 0.9
+padding = {x=8, y=0}
+decorations = "None"
+decorations_theme_variant = "Dark"
+
+[cursor]
+style = { shape = "Beam", blinking = "On" }
+blink_interval = 400
+thickness = 0.25
+
+[mouse]
+hide_when_typing = true
 
 [window]
 opacity = 1.0
