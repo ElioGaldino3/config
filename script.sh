@@ -29,7 +29,6 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 curl -fsSL https://bun.sh/install | bash
 
 rm ~/.zshrc;rm ~/.zsh_history
-cp /mnt/backup/Wallpapers/wallpaper.jpg /home/elio/Imagens/wallpaper.jpg
 ln -sf /home/elio/.development/config/alacritty /home/elio/.config/alacritty
 ln -sf /home/elio/.development/config/awesome /home/elio/.config/awesome
 ln -sf /home/elio/.development/config/copyq /home/elio/.config/copyq
@@ -69,6 +68,9 @@ sudo localectl set-x11-keymap us "" altgr-intl
 sudo setxkbmap -layout us -variant altgr-intl -option nodeadkeys
 sudo vim /etc/systemd/system/getty.target.wants/getty@tty1.service
 #ExecStart=-/sbin/agetty -a elio %I 38400
+
+
+
 
 sudo systemctl daemon-reload
 sudo systemctl start getty@tty1.service

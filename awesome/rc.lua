@@ -591,6 +591,6 @@ end)
 -- }}}
 --
 -- Autorun programs
-awful.util.spawn("picom -f --backend glx")
+awful.util.spawn("picom -f")
 awful.util.spawn("copyq")
 awful.util.spawn("flameshot")
