@@ -29,6 +29,8 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 curl -fsSL https://bun.sh/install | bash
 
 rm ~/.zshrc;rm ~/.zsh_history
+mkdir /home/elio/Imagens
+cp /home/elio/.development/config/wallpaper.jpg /home/elio/Imagens/
 ln -sf /home/elio/.development/config/alacritty /home/elio/.config/alacritty
 ln -sf /home/elio/.development/config/awesome /home/elio/.config/awesome
 ln -sf /home/elio/.development/config/copyq /home/elio/.config/copyq
