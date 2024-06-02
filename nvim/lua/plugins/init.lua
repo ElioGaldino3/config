@@ -1,48 +1,69 @@
-local status, lazy = pcall(require, 'lazy')
-if (not status) then
-  print("Lazy is not installed")
-  return
-end
-
-lazy.setup({
-  'nvim-tree/nvim-web-devicons',
-  'bluz71/vim-moonfly-colors',
-  'xiyaowong/transparent.nvim',
-  require('plugins.conform'),
-  'onsails/lspkind-nvim',
-  require('plugins.rust_vim'),
-  'echasnovski/mini.nvim',
-  'hrsh7th/cmp-buffer',
-  'hrsh7th/cmp-nvim-lsp', -- nvim-cmp source for neovim
-  'hrsh7th/nvim-cmp',     -- completion
-  'neovim/nvim-lspconfig',
+return {
+  {
+    "stevearc/conform.nvim",
+    event = 'BufWritePre', -- uncomment for format on save
+    config = function()
+      require "configs.conform"
+    end,
+  },
+  {
+    "folke/which-key.nvim",
+    enabled = false,
+  },
+  {
+    "rust-lang/rust.vim",
+    ft = "rust",
+    init = function()
+      vim.g.rustfmt_autosave = 1
+    end
+  },
+  {
+    'famiu/bufdelete.nvim',
+  },
   {
     "L3MON4D3/LuaSnip",
     dependencies = { "rafamadriz/friendly-snippets" },
   },
-  'rcarriga/nvim-notify',
-  'saadparwaiz1/cmp_luasnip',
-  'nvim-treesitter/nvim-treesitter',
-  require('plugins.autopairs'),
-  'windwp/nvim-ts-autotag',
-  'kabouzeid/nvim-lspinstall',
+  require('plugins.vim-tmux'),
   {
-    'nvim-lua/plenary.nvim',
-    commit = '08e301982b9a057110ede7a735dd1b5285eb341f'
-  },
-  'nvim-telescope/telescope.nvim',
-  'nvim-telescope/telescope-file-browser.nvim',
-  'akinsho/bufferline.nvim',
-  'norcalli/nvim-colorizer.lua',
-  'glepnir/lspsaga.nvim',
-  'jose-elias-alvarez/null-ls.nvim',
-  'lewis6991/gitsigns.nvim',
-  'famiu/bufdelete.nvim',
-  'williamboman/mason.nvim',
-  'williamboman/mason-lspconfig.nvim',
-  require('plugins.flash'),
-  {
-    'numtostr/comment.nvim',
+    'ThePrimeagen/vim-be-good',
     lazy = false,
   },
-})
+  -- require('plugins.telescope'),
+  -- These are some examples, uncomment them if you want to see them work!
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require("nvchad.configs.lspconfig").defaults()
+      require "configs.lspconfig"
+    end,
+  },
+
+  {
+    'hrsh7th/nvim-cmp',
+    config = function()
+      require "configs.cmp"
+    end
+  }
+
+  --
+  -- {
+  -- 	"williamboman/mason.nvim",
+  -- 	opts = {
+  -- 		ensure_installed = {
+  -- 			"lua-language-server", "stylua",
+  -- 			"html-lsp", "css-lsp" , "prettier"
+  -- 		},
+  -- 	},
+  -- },
+  --
+  -- {
+  -- 	"nvim-treesitter/nvim-treesitter",
+  -- 	opts = {
+  -- 		ensure_installed = {
+  -- 			"vim", "lua", "vimdoc",
+  --      "html", "css"
+  -- 		},
+  -- 	},
+  -- },
+}

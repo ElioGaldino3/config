@@ -68,7 +68,7 @@ cmp.setup({
       elseif check_backspace() then
         vim.fn.feedkeys(T '<Tab>', 'n')
       else
-        vim.fn.feedkeys(T '<C-Space>')       -- Manual trigger
+        vim.fn.feedkeys(T '<C-Space>') -- Manual trigger
       end
     end, {
       'i',
