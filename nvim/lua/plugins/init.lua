@@ -44,6 +44,12 @@ return {
     config = function()
       require "configs.cmp"
     end
+  },
+  {
+    "NvChad/ui",
+    config = function()
+      vim.opt.statusline = ""
+    end
   }
 
   --

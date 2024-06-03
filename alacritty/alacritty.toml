@@ -56,4 +56,4 @@ chars = "\u001B[1;6I"
 key = "F3"
 
 [window]
-opacity = 1.0
+opacity = 0.8
