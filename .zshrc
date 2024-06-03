@@ -11,7 +11,7 @@ export LANG=pt_BR.UTF-8
 ZSH_THEME="robbyrussell"
 
 plugins=(git zsh-autosuggestions)
-
+eval $(keychain --eval /home/elio/.ssh/id_ed25519)
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 
 source $ZSH/oh-my-zsh.sh
@@ -33,3 +33,5 @@ if [ -f '/home/elio/.development/google-cloud-sdk/path.zsh.inc' ]; then . '/home
 if [ -f '/home/elio/.development/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/elio/.development/google-cloud-sdk/completion.zsh.inc'; fi
 
 eval "$(zoxide init zsh)"
+
+clear
