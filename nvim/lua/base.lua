@@ -6,19 +6,19 @@ vim.opt.fileencoding = 'utf-8'
 vim.opt.clipboard:prepend { 'unnamed', 'unnamedplus' }
 
 vim.wo.number = true
+vim.opt.relativenumber = true
 
-vim.opt.laststatus = 0
 vim.opt.title = true
 vim.opt.autoindent = true
 vim.opt.hlsearch = true
 vim.opt.backup = false
 vim.opt.showcmd = true
-vim.opt.timeoutlen = 400
-vim.opt.undofile = true -- enable persistent undo
+vim.opt.timeoutlen = 300
+vim.opt.undofile = true     -- enable persistent undo
 vim.opt.scrolloff = 9
-vim.opt.sidescrolloff = 8
-vim.opt.updatetime = 100    -- faster completion (4000ms default)
+vim.opt.updatetime = 400    -- faster completion (4000ms default)
 vim.opt.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
+vim.opt.backup = false
 vim.opt.cmdheight = 1
 vim.opt.laststatus = 2
 vim.opt.expandtab = true
@@ -46,3 +46,4 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 })
 
 vim.opt.formatoptions:append { 'r' }
+vim.opt.laststatus = 0

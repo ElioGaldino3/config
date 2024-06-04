@@ -23,19 +23,19 @@ background = "0x10100E"
 foreground = "0xC6C6C4"
 
 [font]
-size = 13.0
+size = 12.3
 
 [font.bold]
-family = "JetBrainsMono NerdFont"
-style = "Bold"
+family = "FiraCode NerdFont"
+style = "bold"
 
 [font.normal]
-family = "JetBrainsMono NerdFont"
-style = "Normal"
+family = "FiraCode NerdFont"
+style = "normal"
 
 [font.offset]
 x = 0
-y = 3
+y = 0
 
 [[keyboard.bindings]]
 action = "Paste"

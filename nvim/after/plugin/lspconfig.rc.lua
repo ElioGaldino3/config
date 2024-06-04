@@ -4,18 +4,6 @@ if (not status) then return end
 local on_time_attach_dart = true
 local on_time_attach_go_pls = true
 
-local nvim_create_augroups = function(definitions)
-  for group_name, definition in pairs(definitions) do
-    vim.api.nvim_command('augroup ' .. group_name)
-    vim.api.nvim_command('autocmd!')
-    for _, def in ipairs(definition) do
-      local command = table.concat(vim.tbl_flatten { 'autocmd', def }, ' ')
-      vim.api.nvim_command(command)
-    end
-    vim.api.nvim_command('augroup END')
-  end
-end
-
 local contains_in = function(dictionary, target)
   for _, value in pairs(dictionary) do
     if type(value) == "string" and string.find(value, target) then
@@ -87,7 +75,6 @@ lsp.lua_ls.setup {
       workspace = {
         library = {
           vim.api.nvim_get_runtime_file("", true),
-          "/home/elio/Projetos/DST/scripts"
         },
         checkThirdParty = false
       }
@@ -111,6 +98,9 @@ lsp.rust_analyzer.setup {
     ['rust-analyzer'] = {
       diagnostics = {
         enable = true,
+      },
+      cargo = {
+        allFeatures = true,
       }
     }
   }
