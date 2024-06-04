@@ -7,7 +7,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/fsh
 
 yay -S unzip tmux dbvis postgresql-jdbc jdk11-openjdk neovim flameshot ntfs-3g clang cmake pkg-config ninja p7zip debtap tree xz fzf docker scrcpy neovim copyq docker-compose github-cli gnome-disk-utility ruby tk thunar rofi noto-fonts-emoji arandr nodejs npm arandr jellyfin-server jellyfin-web xclip android-file-transfer inkscape discord scalculator nvidia nvidia-utils lib32-nvidia-utils nvidia-settings sqlc qbittorrent firebase vlc 
-yay -S unzip neovim jre17-openjdk clang cmake pkg-config ninja p7zip debtap tree xz fzf neovim ruby nodejs npm
+yay -S unzip tmux clang cmake ninja p7zip tree xz fzf neovim-nighly python nodejs npm curl vim wget
 
 git config --global user.email "eliogaldino79@outlook.com"
 git config --global user.name "Elio Galdino"
@@ -37,7 +37,6 @@ ln -sf /home/elio/.development/config/copyq /home/elio/.config/copyq
 ln -sf /home/elio/.development/config/nvim /home/elio/.config/nvim
 ln -sf /home/elio/.development/config/tmux /home/elio/.config/tmux
 ln -sf /home/elio/.development/config/chromium-flags.conf /home/elio/.config/chromium-flags.conf
-ln -sf /mnt/Backup/Projetos /home/elio/Projetos
 ln -sf /home/elio/.development/config/.zshrc /home/elio/.zshrc
 ln -sf /home/elio/.development/config/.zsh_history /home/elio/.zsh_history
 ln -sf /home/elio/.development/config/.profile /home/elio/.profile
