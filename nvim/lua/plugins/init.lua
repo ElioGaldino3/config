@@ -5,7 +5,6 @@ if (not status) then
 end
 
 lazy.setup({
-  require('plugins.flash'),
   require('plugins.rust_vim'),
   require('plugins.conform'),
   require('plugins.autopairs'),
