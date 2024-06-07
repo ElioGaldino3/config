@@ -1,12 +1,13 @@
+git config --global init.defaultBranch main
 cd /tmp && git clone https://aur.archlinux.org/yay.git ; cd yay ; makepkg -si
-sudo rm /usr/lib/python3.11/EXTERNALLY-MANAGED
+sudo rm /usr/lib/python3.12/EXTERNALLY-MANAGED
 cd /tmp && wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/fsh
 
-yay -S unzip tmux dbvis postgresql-jdbc jdk11-openjdk neovim flameshot ntfs-3g zoxide clang cmake mechvibes pkg-config ninja p7zip debtap tree xz fzf docker sqlfluff scrcpy neovim copyq ripgrep rp docker-compose github-cli gnome-disk-utility ruby tk thunar rofi noto-fonts-emoji arandr nodejs npm arandr jellyfin-server jellyfin-web xclip android-file-transfer inkscape discord scalculator nvidia nvidia-utils lib32-nvidia-utils nvidia-settings sqlc qbittorrent firebase vlc 
+yay -S unzip tmux dbvis jdk17-openjdk neovim flameshot ntfs-3g zoxide clang cmake mechvibes pkg-config ninja p7zip debtap tree xz fzf docker sqlfluff scrcpy neovim copyq ripgrep rp docker-compose github-cli gnome-disk-utility ruby tk thunar rofi noto-fonts-emoji arandr nodejs npm arandr jellyfin-server jellyfin-web xclip android-file-transfer inkscape discord scalculator sqlc qbittorrent firebase vlc 
 yay -S unzip tmux clang cmake ninja p7zip tree xz fzf neovim-nighly python nodejs npm curl vim wget openssh keychain zoxide ripgrep rp sqlfluff
 
 git config --global user.email "eliogaldino79@outlook.com"
@@ -18,15 +19,16 @@ git config --global alias.ci commit
 git config --global alias.st status
 git config --global alias.cm '!git add -A && git commit -m'
 sudo npm install -g typescript typescript-language-server sql-language-server http-server
-sudo usermod -aG docker $USER
-sudo systemctl enable docker.service
-sudo systemctl enable containerd.service
 mkdir ~/.fonts; cd ~/.fonts
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/JetBrainsMono.zip && wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/FiraCode.zip
 unzip FiraCode.zip; unzip JetBrainsMono.zip
 rm LICENSE OFL.txt readme.md FiraCode.zip JetBrainsMono.zip
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 curl -fsSL https://bun.sh/install | bash
+
+sudo usermod -aG docker $USER
+sudo systemctl enable docker.service
+sudo systemctl enable containerd.service
 
 rm ~/.zshrc;rm ~/.zsh_history
 mkdir /home/elio/Imagens
@@ -46,7 +48,7 @@ rustup default nightly && rustup update
 cargo install tree-sitter-cli exa
 rustup component add rust-analyzer
 
-flutterLINK="https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.16.8-stable.tar.xz"
+flutterLINK="https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.22.1-stable.tar.xz"
 wget $flutterLINK -O flutter.tar; mv ~/Downloads/command* ./android.zip
 
 unzip android.zip; tar -xf flutter.tar
@@ -67,6 +69,7 @@ do
 done
 sudo localectl set-x11-keymap us "" altgr-intl
 sudo setxkbmap -layout us -variant altgr-intl -option nodeadkeys
+sudo setxkbmap -layout us -variant intl
 sudo vim /etc/systemd/system/getty.target.wants/getty@tty1.service
 #ExecStart=-/sbin/agetty -a elio %I 38400
 

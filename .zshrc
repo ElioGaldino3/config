@@ -7,7 +7,6 @@ plugins=(git zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 source $HOME/.profile
 source ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/fsh/fast-syntax-highlighting.plugin.zsh
-. ~/.keychain/`uname -n`-sh
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 
 [ -s "/home/elio/.bun/_bun" ] && source "/home/elio/.bun/_bun"
@@ -21,4 +20,3 @@ if [ -f '/home/elio/.development/google-cloud-sdk/path.zsh.inc' ]; then . '/home
 if [ -f '/home/elio/.development/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/elio/.development/google-cloud-sdk/completion.zsh.inc'; fi
 
 eval "$(zoxide init zsh)"
-export DISPLAY=:0
