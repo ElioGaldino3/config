@@ -20,4 +20,4 @@ if [ -f '/home/elio/.development/google-cloud-sdk/path.zsh.inc' ]; then . '/home
 if [ -f '/home/elio/.development/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/elio/.development/google-cloud-sdk/completion.zsh.inc'; fi
 
 eval "$(zoxide init zsh)"
-eval $(keychain --eval /home/elio/.ssh/id_ed25519)
+eval $(keychain --eval /home/elio/.ssh/id_ed25519 --quiet)
