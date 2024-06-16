@@ -21,3 +21,4 @@ if [ -f '/home/elio/.development/google-cloud-sdk/completion.zsh.inc' ]; then . 
 
 eval "$(zoxide init zsh)"
 eval $(keychain --eval /home/elio/.ssh/id_ed25519 --quiet)
+. "$HOME/.cargo/env"

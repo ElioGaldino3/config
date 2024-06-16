@@ -1,7 +1,7 @@
 return {
-	'neovim/nvim-lspconfig',
+	"neovim/nvim-lspconfig",
 	config = function()
-		require'plugins/lspconfigs/lua_ls'
-
-	end
+		require("plugins/lspconfigs/lua_ls")
+		require("plugins/lspconfigs/dart")
+	end,
 }
