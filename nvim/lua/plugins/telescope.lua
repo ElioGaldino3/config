@@ -88,6 +88,7 @@ return {
 
 		map.set("n", "<leader>ff", builtin.find_files)
 		map.set("n", "<leader>ft", builtin.live_grep)
+		map.set("n", "<leader>b", builtin.buffers)
 		map.set("n", "<leader>e", function()
 			telescope.extensions.file_browser.file_browser({
 				path = "%:p:h",

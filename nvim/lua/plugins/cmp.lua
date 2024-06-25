@@ -7,11 +7,6 @@ local cmp_opts = function()
 	}
 	local cmp_style = cmp_ui.style
 
-	local field_arrangement = {
-		atom = { "kind", "abbr", "menu" },
-		atom_colored = { "kind", "abbr", "menu" },
-	}
-
 	local function border(hl_name)
 		return {
 			{ "╭", hl_name },
@@ -26,16 +21,7 @@ local cmp_opts = function()
 	end
 
 	local options = {
-		completion = {
-			completeopt = "menu,menuone",
-		},
-
 		window = {
-			completion = {
-				side_padding = (cmp_style ~= "atom" and cmp_style ~= "atom_colored") and 1 or 0,
-				winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:None",
-				scrollbar = false,
-			},
 			documentation = {
 				border = border("CmpDocBorder"),
 				winhighlight = "Normal:CmpDoc",
@@ -91,10 +77,6 @@ local cmp_opts = function()
 			{ name = "nvim_lua" },
 		},
 	}
-
-	if cmp_style ~= "atom" and cmp_style ~= "atom_colored" then
-		options.window.completion.border = border("CmpBorder")
-	end
 
 	return options
 end
