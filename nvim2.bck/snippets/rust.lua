@@ -10,21 +10,21 @@ local snippets, autosnippets = {}, {}
 
 local bevy_import = s('bvy', t('use bevy::prelude::*;'))
 
-local bevy_component = s('comp', fmta([[
+local bevy_component = s('bcomp', fmta([[
 #[derive(Component, Debug)]
 pub struct <> {
     <>
 }
 ]], { i(1), i(2) }))
 
-local bevy_bundle = s('bund', fmta([[
+local bevy_bundle = s('bbund', fmta([[
 #[derive(Bundle)]
 pub struct <>Bundle {
     <>
 }
 ]], { i(1), i(2) }))
 
-local bevy_resource = s('ress', fmta([[
+local bevy_resource = s('bres', fmta([[
 #[derive(Resource, Debug, Default)]
 pub struct <>Resource {
     <>
@@ -43,7 +43,8 @@ impl Plugin for <>Plugin {
 }
 ]], { i(1), r(1), i(2) }))
 
-local bevy_query = s('bq', fmta('query: Query<>', { i(1) }))
+local bevy_query = s('bq', fmta('<>: Query<>', { i(1), i(2) }))
+local bevy_time_res = s('btime', t('time: Res<Time>'))
 
 table.insert(autosnippets, bevy_component)
 table.insert(autosnippets, bevy_import)
@@ -51,6 +52,8 @@ table.insert(autosnippets, bevy_delta_time)
 table.insert(autosnippets, bevy_plugin)
 table.insert(autosnippets, bevy_bundle)
 table.insert(autosnippets, bevy_resource)
+table.insert(autosnippets, bevy_query)
+table.insert(autosnippets, bevy_time_res)
 
 
 return snippets, autosnippets

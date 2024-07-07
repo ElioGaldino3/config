@@ -16,7 +16,7 @@ require("lazy").setup({
 	require("plugins/lspconfig"),
 	require("plugins/telescope"),
 	require("plugins/conform"),
-	require("plugins/rust_vim"),
+	-- require("plugins/rust_vim"),
 	require("plugins/tmux_vim"),
 	require("plugins/colorscheme"),
 	require("plugins/cmp"),

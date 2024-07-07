@@ -13,3 +13,6 @@ map.set("n", "caw", 'vaw"_c')
 
 map.set("n", "<leader>s", ":%s/")
 map.set("n", "<esc>", ":nohl<cr>")
+
+map.set('n', "<M-l>", ':bnext<cr>')
+map.set('n', "<M-h>", ':bprevious<cr>')

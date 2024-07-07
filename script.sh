@@ -1,13 +1,13 @@
 git config --global init.defaultBranch main
 cd /tmp && git clone https://aur.archlinux.org/yay.git ; cd yay ; makepkg -si
-sudo rm /usr/lib/python3.12/EXTERNALLY-MANAGED
+sudo rm /usr/lib/python3.11/EXTERNALLY-MANAGED
 cd /tmp && wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/fsh
 
-yay -S unzip tmux dbvis jdk17-openjdk neovim flameshot ntfs-3g zoxide clang cmake mechvibes pkg-config ninja p7zip debtap tree xz fzf docker sqlfluff scrcpy neovim copyq ripgrep rp docker-compose github-cli gnome-disk-utility ruby tk thunar rofi noto-fonts-emoji arandr nodejs npm arandr jellyfin-server jellyfin-web xclip android-file-transfer inkscape discord scalculator sqlc qbittorrent firebase vlc 
+yay -S unzip tmux dbvis jdk11-openjdk neovim flameshot ntfs-3g zoxide clang cmake mechvibes pkg-config ninja p7zip debtap tree xz fzf docker sqlfluff scrcpy neovim copyq ripgrep rp docker-compose github-cli gnome-disk-utility ruby tk thunar rofi noto-fonts-emoji nodejs npm arandr xclip inkscape discord sqlc vlc openssh keychain
 yay -S unzip tmux clang cmake ninja p7zip tree xz fzf neovim-nighly python nodejs npm curl vim wget openssh keychain zoxide ripgrep rp sqlfluff
 
 git config --global user.email "eliogaldino79@outlook.com"
