@@ -7,7 +7,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/fsh
 
-yay -S unzip tmux dbvis jdk11-openjdk neovim flameshot ntfs-3g zoxide clang cmake mechvibes pkg-config ninja p7zip debtap tree xz fzf docker sqlfluff scrcpy neovim copyq ripgrep rp docker-compose github-cli gnome-disk-utility ruby tk thunar rofi noto-fonts-emoji nodejs npm arandr xclip inkscape discord sqlc vlc openssh keychain
+yay -S unzip ttf-firacode-nerd ttf-jetbrains-nerd tmux dbvis jdk11-openjdk neovim flameshot ntfs-3g zoxide clang cmake mechvibes pkg-config ninja p7zip debtap tree xz fzf docker sqlfluff scrcpy neovim copyq ripgrep rp docker-compose github-cli gnome-disk-utility ruby tk thunar rofi noto-fonts-emoji nodejs npm arandr xclip inkscape discord sqlc vlc openssh keychain
 yay -S unzip tmux clang cmake ninja p7zip tree xz fzf neovim-nighly python nodejs npm curl vim wget openssh keychain zoxide ripgrep rp sqlfluff
 
 git config --global user.email "eliogaldino79@outlook.com"
@@ -19,10 +19,6 @@ git config --global alias.ci commit
 git config --global alias.st status
 git config --global alias.cm '!git add -A && git commit -m'
 sudo npm install -g typescript typescript-language-server sql-language-server http-server
-mkdir ~/.fonts; cd ~/.fonts
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/JetBrainsMono.zip && wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/FiraCode.zip
-unzip FiraCode.zip; unzip JetBrainsMono.zip
-rm LICENSE OFL.txt readme.md FiraCode.zip JetBrainsMono.zip
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 curl -fsSL https://bun.sh/install | bash
 
@@ -36,7 +32,6 @@ cp /home/elio/.development/config/wallpaper.jpg /home/elio/Imagens/
 ln -sf /home/elio/.development/config/alacritty /home/elio/.config/alacritty
 ln -sf /home/elio/.development/config/awesome /home/elio/.config/awesome
 ln -sf /home/elio/.development/config/copyq /home/elio/.config/copyq
-ln -sf /home/elio/.development/config/nvim /home/elio/.config/nvim
 ln -sf /home/elio/.development/config/tmux /home/elio/.config/tmux
 ln -sf /home/elio/.development/config/chromium-flags.conf /home/elio/.config/chromium-flags.conf
 ln -sf /home/elio/.development/config/.zshrc /home/elio/.zshrc
@@ -63,7 +58,7 @@ sudo nmcli -g name,type connection  show  --active | awk -F: '/ethernet|wireless
 do
   sudo nmcli con mod "$connection" ipv6.ignore-auto-dns yes
   sudo nmcli con mod "$connection" ipv4.ignore-auto-dns yes
-  sudo nmcli con mod "$connection" ipv4.addresses "192.168.0.22/24" ipv4.gateway 192.168.0.1
+  sudo nmcli con mod "$connection" ipv4.addresses "192.168.0.3/24" ipv4.gateway 192.168.0.1
   sudo nmcli con mod "$connection" ipv4.dns "1.1.1.1 1.0.0.1"
   sudo nmcli con down "$connection" && sudo nmcli con up "$connection"
 done
