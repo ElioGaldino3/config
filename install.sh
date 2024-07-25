@@ -1,7 +1,7 @@
 #!/bin/bash
 timedatectl set-timezone America/Maceio
 
-pacstrap -i /mnt base base-devel linux linux-firmware linux-headers intel-ucode vim util-linux os-prober git unzip networkmanager sudo neofetch dhcpcd wget curl ripgrep fd lazygit fd clang cmake ruby go pulseaudio gnome-disk-utility chromium zsh rsync xorg-server xorg-xinit alacritty awesome update-grub ntfs-3g vlc ffmpeg android-file-transfer qbittorrent pacman-contrib grub efibootmgr dosfstools pavucontrol
+pacstrap -i /mnt base base-devel linux linux-firmware linux-headers intel-ucode vim util-linux os-prober git unzip networkmanager sudo neofetch dhcpcd wget curl ripgrep fd lazygit fd clang cmake ruby go pulseaudio gnome-disk-utility chromium zsh rsync xorg-server xorg-xinit alacritty awesome ntfs-3g vlc ffmpeg android-file-transfer pacman-contrib grub efibootmgr dosfstools pavucontrol
 genfstab -U /mnt >> /mnt/etc/fstab
 sed -i -e "/^#"pt_BR.UTF-8"/s/^#//" /mnt/etc/locale.gen
 systemd-firstboot --root /mnt --prompt

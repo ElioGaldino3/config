@@ -12,6 +12,7 @@ fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 [ -s "/home/elio/.bun/_bun" ] && source "/home/elio/.bun/_bun"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="/home/elio/projects/jogos/shapez-community-edition/build_output/standalone/shapez-linux-x64:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/elio/.development/google-cloud-sdk/path.zsh.inc' ]; then . '/home/elio/.development/google-cloud-sdk/path.zsh.inc'; fi
