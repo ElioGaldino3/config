@@ -19,7 +19,7 @@ git config --global alias.br branch
 git config --global alias.ci commit
 git config --global alias.st status
 git config --global alias.cm '!git add -A && git commit -m'
-sudo npm install -g typescript typescript-language-server sql-language-server http-server
+sudo npm install -g typescript typescript-language-server sql-language-server http-server yarn
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 curl -fsSL https://bun.sh/install | bash
 
@@ -41,7 +41,7 @@ ln -sf /home/elio/.development/config/.profile /home/elio/.profile
 
 source ~/.zshrc
 rustup default nightly && rustup update
-cargo install tree-sitter-cli exa
+cargo install tree-sitter-cli exa zoxide
 rustup component add rust-analyzer
 
 flutterLINK="https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.22.1-stable.tar.xz"

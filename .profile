@@ -7,7 +7,7 @@ export ANDROID_HOME2=$HOME/android
 export PATH=$ANDROID_HOME2/cmdline-tools/tools/bin/:$PATH
 export PATH=$ANDROID_HOME2/emulator/:$PATH
 export PATH=$ANDROID_HOME2/platform-tools/:$PATH
-export CHROME_EXECUTABLE="$(which chromium)"
+export PATH="/home/elio/Projetos/Games/shapez-community-edition/build_output/standalone/shapez-linux-x64:$PATH" export CHROME_EXECUTABLE="$(which chromium)"
 
 . "$HOME/.cargo/env"
 
