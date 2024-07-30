@@ -10,7 +10,7 @@ git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ${ZSH_CU
 yay -S unzip ttf-font-awesome tmux dbvis jdk11-openjdk neovim flameshot ntfs-3g zoxide clang cmake mechvibes pkg-config ninja p7zip debtap tree xz fzf docker sqlfluff scrcpy neovim copyq ripgrep rp docker-compose github-cli gnome-disk-utility ruby tk thunar rofi noto-fonts-emoji nodejs npm arandr xclip inkscape discord sqlc vlc openssh keychain air-bin picom-bin
 yay -S unzip tmux clang cmake ninja p7zip tree xz fzf neovim-nighly python nodejs npm curl vim wget openssh keychain zoxide ripgrep rp sqlfluff
 
-git push --set-upstream origin main
+git config --global --add --bool push.autoSetupRemote true
 git config --global user.email "eliogaldino79@outlook.com"
 git config --global user.name "Elio Galdino"
 git config --global init.defaultBranch main
