@@ -30,6 +30,7 @@ sudo systemctl enable containerd.service
 rm ~/.zshrc;rm ~/.zsh_history
 mkdir /home/elio/Imagens
 cp /home/elio/.development/config/wallpaper.jpg /home/elio/Imagens/
+sudo ln -sf /home/elio/.development/config/others/xorg/keyboard.conf /etc/X11/xorg.conf.d/00-keyboard.conf
 ln -sf /home/elio/.development/config/alacritty /home/elio/.config/alacritty
 ln -sf /home/elio/.development/config/awesome /home/elio/.config/awesome
 ln -sf /home/elio/.development/config/copyq /home/elio/.config/copyq
