@@ -1,4 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
+export LANG="pt_BR.UTF-8"
 
 ZSH_THEME="robbyrussell"
 
@@ -23,6 +24,6 @@ if [ -f '/home/elio/.development/google-cloud-sdk/completion.zsh.inc' ]; then . 
 eval "$(zoxide init zsh)"
 eval $(keychain --eval /home/elio/.ssh/id_ed25519 --quiet)
 . "$HOME/.cargo/env"
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# export PYENV_ROOT="$HOME/.pyenv"
+# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"

@@ -73,5 +73,5 @@ function recCel {
   scrcpy -Nr ~/Videos/file.mp4 --show-touches -m 720
 }
 export PATH="$PATH":"$HOME/.pub-cache/bin"
-alias python="$(pyenv which python)"
-alias pip="$(pyenv which pip)"
+#alias python="$(pyenv which python)"
+#alias pip="$(pyenv which pip)"

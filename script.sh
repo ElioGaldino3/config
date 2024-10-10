@@ -1,13 +1,13 @@
 git config --global init.defaultBranch main
 cd /tmp && git clone https://aur.archlinux.org/yay.git ; cd yay ; makepkg -si
-sudo rm /usr/lib/python3.11/EXTERNALLY-MANAGED
+sudo rm /usr/lib/python3.12/EXTERNALLY-MANAGED
 cd /tmp && wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/fsh
 
-yay -S unzip ttf-font-awesome tmux dbvis jdk11-openjdk neovim flameshot ntfs-3g zoxide clang cmake mechvibes pkg-config ninja p7zip debtap tree xz fzf docker sqlfluff scrcpy neovim copyq ripgrep rp docker-compose github-cli gnome-disk-utility ruby tk thunar rofi noto-fonts-emoji nodejs npm arandr xclip inkscape discord sqlc vlc openssh keychain air-bin picom-bin
+yay -S unzip ttf-font-awesome tmux dbvis jdk11-openjdk neovim flameshot ntfs-3g zoxide clang cmake pkg-config ninja p7zip debtap tree xz fzf docker sqlfluff scrcpy neovim copyq ripgrep rp docker-compose gnome-disk-utility ruby tk thunar rofi noto-fonts-emoji nodejs npm arandr xclip inkscape discord sqlc vlc openssh keychain air-bin
 yay -S unzip tmux clang cmake ninja p7zip tree xz fzf neovim-nighly python nodejs npm curl vim wget openssh keychain zoxide ripgrep rp sqlfluff
 
 git config --global --add --bool push.autoSetupRemote true
@@ -42,7 +42,7 @@ ln -sf /home/elio/.development/config/.profile /home/elio/.profile
 
 source ~/.zshrc
 rustup default nightly && rustup update
-cargo install tree-sitter-cli exa zoxide
+cargo install tree-sitter-cli exa
 rustup component add rust-analyzer
 
 flutterLINK="https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.22.1-stable.tar.xz"
@@ -60,7 +60,7 @@ sudo nmcli -g name,type connection  show  --active | awk -F: '/ethernet|wireless
 do
   sudo nmcli con mod "$connection" ipv6.ignore-auto-dns yes
   sudo nmcli con mod "$connection" ipv4.ignore-auto-dns yes
-  sudo nmcli con mod "$connection" ipv4.addresses "192.168.0.3/24" ipv4.gateway 192.168.0.1
+  sudo nmcli con mod "$connection" ipv4.addresses "192.168.0.5/24" ipv4.gateway 192.168.0.1
   sudo nmcli con mod "$connection" ipv4.dns "1.1.1.1 1.0.0.1"
   sudo nmcli con down "$connection" && sudo nmcli con up "$connection"
 done
