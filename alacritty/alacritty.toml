@@ -26,12 +26,12 @@ foreground = "0xC6C6C4"
 size = 12.3
 
 [font.bold]
-family = "Hasklug Nerd Font"
+family = "FiraCode Nerd Font"
 style = "Bold"
 
 [font.normal]
-family = "Hasklug Nerd Font"
-style = "Medium"
+family = "FiraCode Nerd Font"
+style = "Normal"
 
 
 [font.offset]
