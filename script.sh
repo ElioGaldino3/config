@@ -1,6 +1,7 @@
 git config --global init.defaultBranch main
 cd /tmp && git clone https://aur.archlinux.org/yay.git ; cd yay ; makepkg -si
 sudo rm /usr/lib/python3.12/EXTERNALLY-MANAGED
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 cd /tmp && wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
