@@ -55,7 +55,7 @@ rm flutter.tar; rm android.zip
 cd /tmp/ && git clone https://github.com/biomejs/biome.git && cd biome && cargo build --release && mv ./target/release/biome ~/.development/bins/
 #mkdir $HOME/android/cmdline-tools/tools -p; mv ./cmdline-tools/bin $HOME/android/cmdline-tools/tools; mv ./cmdline-tools/lib $HOME/android/cmdline-tools/tools; mv ./cmdline-tools/NOTICE.txt $HOME/android/cmdline-tools/tools;mv ./cmdline-tools/source.properties $HOME/android/cmdline-tools/tools; rm -rf ./cmdline-tools
 
-sdkmanager --install "platform-tools" "emulator" "cmdline-tools;latest" "build-tools;34.0.0" "platforms;android-34"
+sdkmanager --install "platform-tools" "emulator" "cmdline-tools;latest" "build-tools;35.0.0" "platforms;android-35"
 
 sudo nmcli -g name,type connection  show  --active | awk -F: '/ethernet|wireless/ { print $1 }' | while read connection
 do
